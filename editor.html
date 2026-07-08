@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply as a Video Editor — Business Founders</title>
+  <meta name="description" content="Join the Business Founders editing team. Paid work, consistent volume, and your edits in front of 500,000+ followers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js" } }
+  </script>
+</head>
+<body>
+
+  <canvas id="scene-canvas" data-scene="ambient"></canvas>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">BUSINESS <span>FOUNDERS</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="ebooks.html">E-Books</a></li>
+      <li><a href="clips.html">4K Clips</a></li>
+      <li><a href="editor.html" class="active">Join as Editor</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="#apply" class="nav-cta">Apply</a></li>
+    </ul>
+  </nav>
+
+  <div class="page">
+
+    <header class="page-hero">
+      <span class="eyebrow">We're Hiring</span>
+      <h1>Edit for a Page With <span class="gold">500K+ Reach.</span></h1>
+      <p>We're looking for sharp, reliable video editors to help scale @businessfounders. Paid per project, consistent volume, full credit on your portfolio.</p>
+    </header>
+
+    <section class="section" style="padding-top: 30px; padding-bottom: 50px;">
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <div class="card-icon">$</div>
+          <h3>Paid Per Project</h3>
+          <p>Clear rates agreed upfront. On-time payments, every time — ask our current editors.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">↗</div>
+          <h3>Consistent Volume</h3>
+          <p>We post daily. That means steady work, not one-off gigs that disappear.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">★</div>
+          <h3>Real Exposure</h3>
+          <p>Your edits in front of half a million founders — portfolio proof that opens doors.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPLICATION FORM -->
+    <section class="section" id="apply" style="padding-top: 40px;">
+      <div class="section-head reveal">
+        <span class="eyebrow">Application</span>
+        <h2>Apply to <span class="gold">Join the Team</span></h2>
+        <p>Takes under 3 minutes. We review every application personally and reply within 5 business days.</p>
+      </div>
+
+      <div class="form-wrap reveal">
+        <form id="editor-form" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="John Carter" required />
+            </div>
+            <div class="field">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="instagram">Instagram / X Handle</label>
+              <input type="text" id="instagram" name="instagram" placeholder="@yourhandle" />
+            </div>
+            <div class="field">
+              <label for="experience">Years of Editing Experience *</label>
+              <select id="experience" name="experience" required>
+                <option value="">Select…</option>
+                <option>Less than 1 year</option>
+                <option>1–2 years</option>
+                <option>3–5 years</option>
+                <option>5+ years</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="software">Editing Software You Use *</label>
+            <select id="software" name="software" required>
+              <option value="">Select…</option>
+              <option>Adobe Premiere Pro</option>
+              <option>After Effects</option>
+              <option>DaVinci Resolve</option>
+              <option>CapCut</option>
+              <option>Final Cut Pro</option>
+              <option>Multiple / Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="portfolio">Portfolio Link (Drive, YouTube, IG, etc.) *</label>
+            <input type="url" id="portfolio" name="portfolio" placeholder="https://…" required />
+          </div>
+
+          <div class="field">
+            <label for="message">Why do you want to edit for Business Founders?</label>
+            <textarea id="message" name="message" placeholder="Tell us about your style, your best-performing edit, and your availability…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-gold" style="width: 100%;">Submit Application</button>
+        </form>
+
+        <div class="form-success">
+          <div class="check">✓</div>
+          <h3>Application Received</h3>
+          <p>Thank you — we review every application personally.<br />Expect a reply within 5 business days if it's a fit.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">BUSINESS <span>FOUNDERS</span></a>
+          <p>Premium business education and cinematic content for the next generation of founders.</p>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <ul>
+            <li><a href="ebooks.html">E-Books</a></li>
+            <li><a href="clips.html">4K Video Clips</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="editor.html">Careers — Editors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://instagram.com/businessfounders" target="_blank" rel="noopener">Instagram — @businessfounders</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span class="year"></span> Business Founders. All rights reserved.</span>
+        <span>Built for founders, by founders.</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script type="module" src="js/scene.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
