@@ -293,12 +293,14 @@ html {
   left: 0;
   width: 46%;
   background: linear-gradient(105deg, transparent 8%, var(--bk-accent-soft) 50%, transparent 92%);
-  transform: translateX(-130%) skewX(-16deg);
+  /* parked fully clear of the cover — the skew's top corner
+     otherwise pokes back into view at the top-left */
+  transform: translateX(-180%) skewX(-16deg);
   animation: rimSweep 7s linear infinite;
   pointer-events: none;
 }
 @keyframes rimSweep {
-  0%, 78% { transform: translateX(-130%) skewX(-16deg); }
+  0%, 78% { transform: translateX(-180%) skewX(-16deg); }
   92%, 100% { transform: translateX(340%) skewX(-16deg); }
 }
 .comp.fx-shelf.active .book-rim {
