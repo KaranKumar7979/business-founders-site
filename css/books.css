@@ -159,8 +159,12 @@
 /* ============================================
    Book 1 — Shelf Book (deep navy, serif)
    ============================================ */
+/* One rotated plane with the spine painted as a strip on its edge.
+   (A true two-face 3D book — cover + spine on separate planes —
+   triggers projection/clipping bugs on mobile renderers.) */
 .fx-shelf .book3d {
   overflow: visible;
+  transform-style: flat;
   transform: rotateY(-22deg);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -172,24 +176,23 @@
 
 .fx-shelf .book-face {
   position: absolute;
-  inset: 0;
-  border-radius: 6px;
+  inset: 0 14px 0 0; /* leaves room for the spine strip */
+  border-radius: 6px 2px 2px 6px;
   overflow: hidden;
-  transform: translateZ(24px);
   background: linear-gradient(180deg, var(--bk-bg-top), var(--bk-bg-bottom));
 }
 
-/* Spine: 24px-deep face joined at the right edge, swung 90° back */
+/* Spine strip: darker band on the trailing edge, foreshortened
+   by the same rotation, so it reads as the book's depth */
 .fx-shelf .book-spine {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 1px;
+  bottom: 1px;
   right: 0;
-  width: 24px;
-  transform-origin: right center;
-  transform: rotateY(90deg);
-  background: linear-gradient(180deg, var(--bk-bg-bottom), #081520);
-  border-radius: 2px 0 0 2px;
+  width: 14px;
+  background: linear-gradient(90deg, var(--bk-bg-bottom), #060f18);
+  border-radius: 0 3px 3px 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,10 +201,11 @@
 .fx-shelf .book-spine span {
   writing-mode: vertical-rl;
   font-family: var(--bk-font, serif);
-  font-size: 9px;
-  letter-spacing: 0.14em;
+  font-size: 8px;
+  letter-spacing: 0.12em;
   color: var(--bk-accent);
   white-space: nowrap;
+  opacity: 0.8;
 }
 
 /* Gold rim-light sweeping the cover as the book turns */
@@ -399,7 +403,6 @@
   /* shallower depth so 3D doesn't distort on phones */
   .book-wrap { perspective: 900px; }
   .fx-shelf .book3d { transform: rotateY(-14deg); }
-  .fx-shelf .book-face { transform: translateZ(14px); }
   .book-meta h3 { font-size: 20px; }
 
   /* Phones: centre-stage moments get extra punch since there is no hover */
