@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Lora:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/books.css?v=5" />
+  <link rel="stylesheet" href="css/books.css?v=6" />
   <script type="importmap">
     { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js" } }
   </script>
@@ -33,47 +33,50 @@
 
   <div class="page">
 
-    <header class="page-hero">
+    <section class="comp comp-intro">
       <span class="eyebrow">Digital Library</span>
       <h1>Knowledge That <span class="gold">Compounds.</span></h1>
-      <p>No fluff. No recycled advice. Playbooks written from real wins and real losses — delivered instantly to your inbox.</p>
-    </header>
+      <p class="intro-sub">No fluff. No recycled advice. Playbooks written from real wins and real losses — delivered instantly to your inbox.</p>
+      <p class="intro-count"><span class="gold">Four books. One system.</span> Scroll to meet the series.</p>
+      <div class="scroll-hint" aria-hidden="true"><span>↓</span></div>
+    </section>
 
-    <section class="section" style="padding-top: 30px;">
-      <div class="section-head">
-        <span class="eyebrow">The Founder Series</span>
-        <h2>Four Books. <span class="gold">One System.</span></h2>
-        <p>From your first follower to your first sale — each book picks up exactly where the last one ends.</p>
-      </div>
+    <div id="book-comps">
+      <!-- One full-screen compartment per book, rendered by js/books.js -->
+    </div>
 
-      <div class="books-grid" id="book-series-grid">
-        <!-- Cards are rendered by js/books.js from js/books-config.js -->
-      </div>
-
-      <div class="guarantee reveal">
-        <div class="guarantee-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          256-bit Secure Checkout
-        </div>
-        <div class="guarantee-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          Delivered Instantly by Email
-        </div>
-        <div class="guarantee-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          30-Day Money-Back Guarantee — No Questions Asked
+    <section class="comp comp-bundle">
+      <div class="comp-bg bundle-bg" aria-hidden="true"></div>
+      <div class="comp-inner">
+        <div class="bundle-minis" id="bundle-minis" aria-hidden="true"></div>
+        <div class="comp-meta bundle-meta">
+          <span class="eyebrow">Bundle &amp; Save</span>
+          <h2 class="bundle-title">Get All Four for <span class="gold">$79</span></h2>
+          <p>The complete Founder Series — every playbook, from your first follower to your first sale.</p>
+          <a href="#" class="btn btn-gold">Get the Full Library</a>
         </div>
       </div>
     </section>
 
-    <section class="cta-band reveal">
-      <span class="eyebrow">Bundle &amp; Save</span>
-      <h2>Get All Four for <span class="gold">$79</span></h2>
-      <p>The complete Founder Series — save versus buying each book separately.</p>
-      <a href="#" class="btn btn-gold">Get the Full Library</a>
-    </section>
+    <section class="comp comp-tail">
+      <div class="tail-inner">
+        <div class="guarantee reveal visible">
+          <div class="guarantee-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            256-bit Secure Checkout
+          </div>
+          <div class="guarantee-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Delivered Instantly by Email
+          </div>
+          <div class="guarantee-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            30-Day Money-Back Guarantee — No Questions Asked
+          </div>
+        </div>
+      </div>
 
-    <footer class="footer">
+      <footer class="footer">
       <div class="footer-inner">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo">BUSINESS <span>FOUNDERS</span></a>
@@ -105,12 +108,13 @@
         <span>Built for founders, by founders.</span>
       </div>
     </footer>
+    </section>
 
   </div>
 
   <script type="module" src="js/scene.js"></script>
   <script src="js/books-config.js?v=2"></script>
-  <script src="js/books.js?v=4"></script>
+  <script src="js/books.js?v=5"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
