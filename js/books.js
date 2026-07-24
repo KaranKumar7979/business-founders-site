@@ -254,6 +254,8 @@
         // -1 (card at top of screen) .. 0 (centre) .. 1 (bottom)
         const p = Math.max(-1, Math.min(1, (r.top + r.height / 2 - half) / half));
         item.tiltEl.style.transform = `perspective(900px) rotateX(${(p * 8).toFixed(2)}deg)`;
+        // cover layers read this for scroll parallax
+        item.el.style.setProperty("--scrollp", p.toFixed(3));
       });
     };
     window.addEventListener(
