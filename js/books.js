@@ -253,7 +253,7 @@
         const r = item.el.getBoundingClientRect();
         // -1 (card at top of screen) .. 0 (centre) .. 1 (bottom)
         const p = Math.max(-1, Math.min(1, (r.top + r.height / 2 - half) / half));
-        item.tiltEl.style.transform = `rotateX(${(p * 8).toFixed(2)}deg)`;
+        item.tiltEl.style.transform = `perspective(900px) rotateX(${(p * 8).toFixed(2)}deg)`;
       });
     };
     window.addEventListener(
@@ -306,7 +306,7 @@
         const x = (e.clientX - r.left) / r.width - 0.5;
         const y = (e.clientY - r.top) / r.height - 0.5;
         tiltEl.style.transform =
-          `rotateY(${(x * 2 * max).toFixed(2)}deg) rotateX(${(-y * 2 * max).toFixed(2)}deg)`;
+          `perspective(900px) rotateY(${(x * 2 * max).toFixed(2)}deg) rotateX(${(-y * 2 * max).toFixed(2)}deg)`;
       });
     });
     card.addEventListener("pointerleave", () => {

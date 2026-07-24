@@ -12,13 +12,12 @@
   gap: 26px;
 }
 
-/* Perspective lives on each card, not the grid — a shared grid
-   vanishing point skews cards far from the centre, worst in the
-   single-column phone layout. */
+/* No shared 3D context above the card: when the card itself is a
+   preserve-3d participant, a rotated cover's rear half (z < 0)
+   sorts BEHIND the card's opaque background and vanishes. The
+   perspective lives on .tilt instead, close to what rotates. */
 .book-wrap {
   position: relative;
-  perspective: 1200px;
-  transform-style: preserve-3d;
 }
 
 /* ---------- pre-rendered shadow pair (opacity cross-fade only) ---------- */
@@ -58,7 +57,6 @@
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 10px;
   padding: 24px 22px 26px;
-  transform-style: preserve-3d;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s;
   outline: none;
 }
@@ -71,7 +69,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  transform-style: preserve-3d;
+  perspective: 1000px; /* depth for the cover pieces that rotate/lift */
   transition: transform 0.25s ease-out;
 }
 
@@ -401,7 +399,7 @@
 @media (max-width: 640px) {
   .books-grid { grid-template-columns: 1fr; }
   /* shallower depth so 3D doesn't distort on phones */
-  .book-wrap { perspective: 900px; }
+  .tilt { perspective: 850px; }
   .fx-shelf .book3d { transform: rotateY(-14deg); }
   .book-meta h3 { font-size: 20px; }
 
