@@ -7,8 +7,9 @@
   <meta name="description" content="Battle-tested business e-books on wealth, mindset, and scaling — instant digital delivery, 30-day money-back guarantee." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Lora:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/books.css" />
   <script type="importmap">
     { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js" } }
   </script>
@@ -39,52 +40,14 @@
     </header>
 
     <section class="section" style="padding-top: 30px;">
-      <div class="grid grid-3">
+      <div class="section-head">
+        <span class="eyebrow">The Founder Series</span>
+        <h2>Four Books. <span class="gold">One System.</span></h2>
+        <p>From your first follower to your first sale — each book picks up exactly where the last one ends.</p>
+      </div>
 
-        <div class="card product reveal">
-          <span class="badge">Best Seller</span>
-          <div class="product-cover">The Founder's<br />Wealth Blueprint</div>
-          <h3 style="margin-top:0;">The Founder's Wealth Blueprint</h3>
-          <p>The complete system for building income streams that outlive the algorithm.</p>
-          <div class="price-row"><span class="price">$29</span><span class="price-old">$59</span></div>
-          <ul>
-            <li>180+ pages of actionable strategy</li>
-            <li>7 income-stream frameworks</li>
-            <li>Bonus: 30-day execution planner</li>
-            <li>Lifetime updates included</li>
-          </ul>
-          <a href="#" class="btn btn-gold">Buy Now — Instant Access</a>
-        </div>
-
-        <div class="card product reveal">
-          <div class="product-cover">Millionaire<br />Mindset Codex</div>
-          <h3 style="margin-top:0;">Millionaire Mindset Codex</h3>
-          <p>Rewire how you think about money, risk, and discipline — the inner game of wealth.</p>
-          <div class="price-row"><span class="price">$19</span><span class="price-old">$39</span></div>
-          <ul>
-            <li>120 pages, zero filler</li>
-            <li>Daily mental frameworks</li>
-            <li>Habit-tracking templates</li>
-            <li>Read in one weekend</li>
-          </ul>
-          <a href="#" class="btn btn-ghost">Buy Now — Instant Access</a>
-        </div>
-
-        <div class="card product reveal">
-          <span class="badge">New</span>
-          <div class="product-cover">Zero to<br />100K Followers</div>
-          <h3 style="margin-top:0;">Zero to 100K Followers</h3>
-          <p>The exact theme-page growth system behind @businessfounders — start to monetization.</p>
-          <div class="price-row"><span class="price">$39</span><span class="price-old">$79</span></div>
-          <ul>
-            <li>Our full content strategy, exposed</li>
-            <li>Viral hook &amp; caption formulas</li>
-            <li>Monetization roadmap</li>
-            <li>Posting calendar template</li>
-          </ul>
-          <a href="#" class="btn btn-ghost">Buy Now — Instant Access</a>
-        </div>
-
+      <div class="books-grid" id="book-series-grid">
+        <!-- Cards are rendered by js/books.js from js/books-config.js -->
       </div>
 
       <div class="guarantee reveal">
@@ -105,8 +68,8 @@
 
     <section class="cta-band reveal">
       <span class="eyebrow">Bundle &amp; Save</span>
-      <h2>Get All Three for <span class="gold">$59</span></h2>
-      <p>The complete Business Founders library — save 33% versus buying separately.</p>
+      <h2>Get All Four for <span class="gold">$79</span></h2>
+      <p>The complete Founder Series — save versus buying each book separately.</p>
       <a href="#" class="btn btn-gold">Get the Full Library</a>
     </section>
 
@@ -146,6 +109,8 @@
   </div>
 
   <script type="module" src="js/scene.js"></script>
+  <script src="js/books-config.js"></script>
+  <script src="js/books.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
