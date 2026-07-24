@@ -183,7 +183,7 @@
   const wraps = BOOK_THEMES.map((theme) => {
     const el = buildCard(theme);
     mount.appendChild(el);
-    return { el, theme, inView: false, drawn: false };
+    return { el, theme, tiltEl: el.querySelector(".tilt"), inView: false, drawn: false };
   });
 
   // ---------- curve: measure path length so CSS can draw it ----------
@@ -221,21 +221,68 @@
     });
   }
 
-  // ---------- touch devices: scroll-driven effects ----------
-  // Phones never hover, so the card plays its full effect while it
-  // travels through the middle band of the viewport, and settles
-  // back as it scrolls out. The .active class mirrors :hover in CSS.
-  if (window.matchMedia("(hover: none)").matches && !reduceMotion.matches) {
+  // ---------- touch devices: scroll is the interaction ----------
+  // Phones never hover, so the scroll position drives everything:
+  // 1. every in-view card tilts continuously with its screen position,
+  // 2. crossing the middle of the viewport plays the card's full
+  //    effect (.active mirrors :hover in CSS), and
+  // 3. a tap fires the full effect immediately.
+  const touchDevice =
+    window.matchMedia("(hover: none)").matches ||
+    window.matchMedia("(pointer: coarse)").matches;
+
+  if (touchDevice && !reduceMotion.matches) {
+    // 2. centre-stage: full effect while in the middle ~36% of the screen
     const centerBand = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           entry.target.classList.toggle("active", entry.isIntersecting);
         });
       },
-      // Middle ~26% of the viewport counts as "in focus"
-      { rootMargin: "-37% 0px -37% 0px", threshold: 0 }
+      { rootMargin: "-32% 0px -32% 0px", threshold: 0 }
     );
     wraps.forEach(({ el }) => centerBand.observe(el));
+
+    // 1. continuous scroll-linked tilt, rAF-throttled
+    let raf = null;
+    const scrollTilt = () => {
+      raf = null;
+      const half = window.innerHeight / 2;
+      wraps.forEach((item) => {
+        if (!item.inView) return;
+        const r = item.el.getBoundingClientRect();
+        // -1 (card at top of screen) .. 0 (centre) .. 1 (bottom)
+        const p = Math.max(-1, Math.min(1, (r.top + r.height / 2 - half) / half));
+        item.tiltEl.style.transform = `rotateX(${(p * 8).toFixed(2)}deg)`;
+      });
+    };
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!raf) raf = requestAnimationFrame(scrollTilt);
+      },
+      { passive: true }
+    );
+    scrollTilt();
+
+    // 3. tap: play the full effect at once, settle back after
+    wraps.forEach((item) => {
+      let hold = null;
+      item.el.addEventListener(
+        "touchstart",
+        () => {
+          item.el.classList.add("active");
+          clearTimeout(hold);
+          hold = setTimeout(() => {
+            // only settle back if the card isn't centre-stage
+            const r = item.el.getBoundingClientRect();
+            const mid = window.innerHeight / 2;
+            if (r.top > mid || r.bottom < mid) item.el.classList.remove("active");
+          }, 1400);
+        },
+        { passive: true }
+      );
+    });
   }
 
   // ---------- pointer tilt (desktop only, rAF-throttled) ----------

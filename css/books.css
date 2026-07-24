@@ -401,6 +401,10 @@
   .fx-shelf .book3d { transform: rotateY(-14deg); }
   .fx-shelf .book-face { transform: translateZ(14px); }
   .book-meta h3 { font-size: 20px; }
+
+  /* Phones: centre-stage moments get extra punch since there is no hover */
+  .fx-shelf.active .book3d { transform: rotateY(-2deg) translateY(-12px) scale(1.03); }
+  .fx-lift.active .book-card { transform: translateY(-16px) scale(1.04); }
 }
 
 /* ============================================
