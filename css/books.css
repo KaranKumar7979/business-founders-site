@@ -10,8 +10,12 @@
    --scrollp — -1..1 scroll position for parallax
    ============================================ */
 
+/* proximity, not mandatory: mandatory + snap-stop can trap the
+   scroll between sections on phones; proximity still settles each
+   compartment into place but never fights the user's thumb */
 html {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
+  scroll-behavior: auto; /* smooth-scroll fights the snap engine */
 }
 
 .comp {
@@ -19,7 +23,6 @@ html {
   min-height: 100vh;
   min-height: 100svh;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,7 +141,10 @@ html {
   width: clamp(240px, 28vw, 330px);
   flex-shrink: 0;
 }
-.stage-tilt { transform-style: preserve-3d; }
+.stage-tilt {
+  transform-style: preserve-3d;
+  will-change: transform; /* keep the tilt on its own GPU layer */
+}
 
 /* grounding shadow: static layer, opacity-only changes */
 .stage::after {

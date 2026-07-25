@@ -163,12 +163,28 @@ window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+// ---------- Visibility: skip rendering when fully covered ----------
+// On the e-books page the full-screen book compartments are opaque;
+// rendering the scene behind them just burns GPU and makes the
+// scroll-snap stutter. Only the intro and tail reveal the canvas.
+let sceneVisible = true;
+const sceneWindows = document.querySelectorAll(".comp-intro, .comp-tail");
+if (sceneWindows.length && "IntersectionObserver" in window) {
+  const seen = new Map();
+  const coverIO = new IntersectionObserver((entries) => {
+    entries.forEach((e) => seen.set(e.target, e.isIntersecting));
+    sceneVisible = [...seen.values()].some(Boolean);
+  });
+  sceneWindows.forEach((w) => coverIO.observe(w));
+}
+
 // ---------- Animate ----------
 const clock = new THREE.Clock();
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function animate() {
   requestAnimationFrame(animate);
+  if (!sceneVisible) return;
   const t = clock.getElapsedTime();
 
   if (!reducedMotion) {
