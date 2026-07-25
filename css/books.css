@@ -10,11 +10,11 @@
    --scrollp — -1..1 scroll position for parallax
    ============================================ */
 
-/* proximity, not mandatory: mandatory + snap-stop can trap the
-   scroll between sections on phones; proximity still settles each
-   compartment into place but never fights the user's thumb */
+/* mandatory so a single flick always commits to the next
+   compartment, but WITHOUT scroll-snap-stop: always (that forced
+   stop is what trapped the scroll between sections before) */
 html {
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
   scroll-behavior: auto; /* smooth-scroll fights the snap engine */
 }
 
