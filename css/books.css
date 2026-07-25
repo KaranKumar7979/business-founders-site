@@ -10,9 +10,7 @@
    --scrollp — -1..1 scroll position for parallax
    ============================================ */
 
-/* mandatory so a single flick always commits to the next
-   compartment, but WITHOUT scroll-snap-stop: always (that forced
-   stop is what trapped the scroll between sections before) */
+/* strict paging: one flick moves exactly one compartment */
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: auto; /* smooth-scroll fights the snap engine */
@@ -23,6 +21,7 @@ html {
   min-height: 100vh;
   min-height: 100svh;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
   align-items: center;
   justify-content: center;
