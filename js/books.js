@@ -230,14 +230,17 @@
   });
 
   // ---------- section observers ----------
-  // .shown: entrance choreography, replays on every visit
+  // .shown: entrance choreography, replays on every visit.
+  // Fires at 55% visibility so the snap animation has finished
+  // landing the section before the book starts moving — running
+  // both at once makes the snap stall on phones.
   const showIO = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         entry.target.classList.toggle("shown", entry.isIntersecting);
       });
     },
-    { threshold: 0.3 }
+    { threshold: 0.55 }
   );
   comps.forEach(({ el }) => showIO.observe(el));
   document.querySelectorAll(".comp-bundle").forEach((s) => showIO.observe(s));

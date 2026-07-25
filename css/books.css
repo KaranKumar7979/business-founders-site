@@ -226,8 +226,8 @@ html {
   opacity: 0;
   transform: translateX(15vw);
   transition:
-    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.55s ease-out;
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease-out;
 }
 .comp-meta {
   opacity: 0;
