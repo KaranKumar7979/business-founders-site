@@ -185,7 +185,7 @@
     const meta = document.createElement("div");
     meta.className = "comp-meta";
     meta.innerHTML =
-      `<span class="eyebrow comp-eyebrow">Book ${theme.num} — The Founder Series</span>` +
+      `<span class="eyebrow comp-eyebrow">Book ${theme.num} of The Founder Series</span>` +
       `<h2>${theme.title}</h2>` +
       `<p>${theme.subtitle}</p>` +
       `<a class="comp-cta" href="${theme.href}" aria-label="Get ${theme.title}">Get the Book →</a>`;
