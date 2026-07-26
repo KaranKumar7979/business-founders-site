@@ -415,3 +415,18 @@ html {
     animation: none !important;
   }
 }
+
+/* secondary line under a compartment CTA */
+.comp-note {
+  margin: 18px 0 0;
+  font-size: 13px;
+  color: var(--c-muted);
+}
+.comp-note a {
+  color: var(--c-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+.comp-note a:hover,
+.comp-note a:focus-visible { border-bottom-color: var(--c-accent); }

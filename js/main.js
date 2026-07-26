@@ -97,17 +97,64 @@ window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", onScroll, { passive: true });
 checkReveals();
 
-// Editor application form (front-end only for now —
-// wire the fetch() below to Formspree/your backend when ready)
-const form = document.getElementById("editor-form");
-if (form) {
-  form.addEventListener("submit", (e) => {
+// Lead forms: submit to Formspree via fetch.
+// Until a real form ID is set in the action, we never fake a
+// success — the visitor is told to DM instead, so no enquiry
+// is silently lost.
+document.querySelectorAll("form.lead-form").forEach((form) => {
+  const errorEl = form.querySelector(".form-error");
+  const successEl = form.parentElement.querySelector(".form-success");
+  const button = form.querySelector('button[type="submit"]');
+
+  function fail(msg) {
+    if (!errorEl) return;
+    errorEl.textContent = msg;
+    errorEl.hidden = false;
+  }
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    form.style.display = "none";
-    document.querySelector(".form-success").style.display = "block";
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (errorEl) errorEl.hidden = true;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (form.action.includes("REPLACE_ME")) {
+      fail(
+        "Our enquiry form is being switched on shortly. In the meantime, please DM @businessfounders on Instagram and we'll pick it up there."
+      );
+      return;
+    }
+
+    const label = button ? button.textContent : "";
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Sending…";
+    }
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error(res.status);
+      form.style.display = "none";
+      if (successEl) successEl.style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      if (button) {
+        button.disabled = false;
+        button.textContent = label;
+      }
+      fail(
+        "Something went wrong sending that. Please try again, or DM @businessfounders on Instagram."
+      );
+    }
   });
-}
+});
 
 // Footer year
 document.querySelectorAll(".year").forEach((el) => {
