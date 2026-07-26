@@ -430,3 +430,73 @@ html {
 }
 .comp-note a:hover,
 .comp-note a:focus-visible { border-bottom-color: var(--c-accent); }
+
+/* ============================================
+   6 · Become an Editor — roster card, not yet open
+   ============================================ */
+.roster-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
+  padding: 30px 26px;
+  background: linear-gradient(165deg, rgba(46, 33, 25, 0.95), rgba(16, 11, 8, 0.98));
+  border: 1px solid rgba(224, 145, 58, 0.28);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+.roster-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px dashed rgba(224, 145, 58, 0.5);
+  background: rgba(224, 145, 58, 0.08);
+  margin-bottom: 22px;
+}
+.roster-line {
+  height: 9px;
+  border-radius: 3px;
+  background: rgba(245, 237, 228, 0.14);
+  margin-bottom: 11px;
+}
+.roster-line.w85 { width: 85%; }
+.roster-line.w70 { width: 70%; }
+.roster-line.w60 { width: 60%; }
+.roster-line.w45 { width: 45%; background: rgba(224, 145, 58, 0.3); }
+.roster-rule {
+  height: 1px;
+  background: rgba(224, 145, 58, 0.22);
+  margin: 20px 0;
+}
+/* ribbon across the corner: the "not yet" signal */
+.roster-ribbon {
+  position: absolute;
+  top: 30px;
+  right: -52px;
+  width: 200px;
+  padding: 8px 0;
+  text-align: center;
+  transform: rotate(38deg);
+  background: var(--c-accent);
+  color: #170D05;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+/* slow shimmer so the card reads as waiting, not broken */
+.roster-shine {
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: 0;
+  width: 40%;
+  background: linear-gradient(105deg, transparent 10%, rgba(255, 255, 255, 0.07) 50%, transparent 90%);
+  transform: translateX(-160%) skewX(-14deg);
+  pointer-events: none;
+}
+.comp.shown .roster-shine { animation: rosterShine 6s linear infinite; }
+@keyframes rosterShine {
+  0%, 74% { transform: translateX(-160%) skewX(-14deg); }
+  92%, 100% { transform: translateX(320%) skewX(-14deg); }
+}
