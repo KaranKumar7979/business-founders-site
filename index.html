@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css?v=1" />
   <script type="importmap">
     { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js" } }
   </script>
@@ -32,8 +33,8 @@
 
   <div class="page">
 
-    <!-- HERO -->
-    <header class="hero">
+    <!-- 1 · INTRO -->
+    <section class="comp comp-intro">
       <span class="eyebrow">✦ &nbsp;Trusted by 500,000+ Founders &nbsp;✦</span>
       <h1>Build Wealth.<br />Build <em>Legacy.</em></h1>
       <p class="sub">
@@ -44,60 +45,130 @@
         <a href="ebooks.html" class="btn btn-gold">Explore E-Books</a>
         <a href="clips.html" class="btn btn-ghost">Browse 4K Clips</a>
       </div>
-    </header>
+      <div class="scroll-hint" aria-hidden="true"><span>↓</span></div>
+    </section>
 
-    <!-- TRUST BAR -->
-    <div class="trust-bar reveal">
-      <div class="trust-item"><div class="num">500K+</div><div class="label">Community</div></div>
-      <div class="trust-item"><div class="num">12,000+</div><div class="label">E-Books Sold</div></div>
-      <div class="trust-item"><div class="num">4.9★</div><div class="label">Avg. Rating</div></div>
-      <div class="trust-item"><div class="num">30-Day</div><div class="label">Guarantee</div></div>
-    </div>
-
-    <!-- WHAT WE OFFER -->
-    <section class="section">
-      <div class="section-head reveal">
-        <span class="eyebrow">What We Offer</span>
-        <h2>Everything You Need to <span class="gold">Level Up</span></h2>
-        <p>Four ways to grow with Business Founders. Pick your path.</p>
+    <!-- 2 · THE PROOF -->
+    <section class="comp comp-proof">
+      <div class="section-head">
+        <span class="eyebrow">The Numbers</span>
+        <h2>Built on <span class="gold">Real Results.</span></h2>
       </div>
+      <div class="proof-grid">
+        <div class="proof-item" style="--d:0ms;">
+          <div class="num" data-count="500000" data-compact="1" data-suffix="+">500K+</div>
+          <div class="label">Community</div>
+        </div>
+        <div class="proof-item" style="--d:110ms;">
+          <div class="num" data-count="12000" data-suffix="+">12,000+</div>
+          <div class="label">E-Books Sold</div>
+        </div>
+        <div class="proof-item" style="--d:220ms;">
+          <div class="num" data-count="4.9" data-decimals="1" data-suffix="★">4.9★</div>
+          <div class="label">Average Rating</div>
+        </div>
+        <div class="proof-item" style="--d:330ms;">
+          <div class="num" data-count="30" data-suffix="-Day">30-Day</div>
+          <div class="label">Guarantee</div>
+        </div>
+      </div>
+      <div class="proof-rule" aria-hidden="true"></div>
+    </section>
 
-      <div class="grid grid-2">
-        <a href="ebooks.html" class="card reveal">
-          <div class="card-icon">📖</div>
-          <h3>Premium E-Books</h3>
-          <p>Battle-tested playbooks on wealth, mindset, and building businesses that last. Written for founders, by founders.</p>
-          <span class="card-link">Shop E-Books →</span>
-        </a>
-        <a href="clips.html" class="card reveal">
-          <div class="card-icon">🎬</div>
-          <h3>4K Video Clips</h3>
-          <p>Cinematic, ready-to-post 4K clip packs for theme pages and content creators. Grow faster with premium visuals.</p>
-          <span class="card-link">Browse Clips →</span>
-        </a>
-        <a href="editor.html" class="card reveal">
-          <div class="card-icon">✂️</div>
-          <h3>Join as a Video Editor</h3>
-          <p>Talented editor? Work with one of the fastest-growing business pages on Instagram. Paid opportunities, real growth.</p>
-          <span class="card-link">Apply Now →</span>
-        </a>
-        <a href="about.html" class="card reveal">
-          <div class="card-icon">◆</div>
-          <h3>About Us</h3>
-          <p>The story behind @businessfounders: our mission, our standards, and why half a million founders trust us.</p>
-          <span class="card-link">Our Story →</span>
-        </a>
+    <!-- 3 · E-BOOKS -->
+    <section class="comp comp-books" style="--c-top:#1B3C58; --c-bottom:#0E2334; --c-accent:#C9A24C; --c-faint:rgba(201,162,76,.14); --c-text:#F4EFE4; --c-muted:#C9BFAC;">
+      <div class="comp-bg" aria-hidden="true"></div>
+      <div class="comp-inner">
+        <div class="stage" aria-hidden="true">
+          <div class="stage-tilt">
+            <div class="books-fan">
+              <div class="fan-book" style="--i:0; --btop:#1B3C58; --bbot:#0E2334; --bacc:#C9A24C;">01</div>
+              <div class="fan-book" style="--i:1; --btop:#3A1226; --bbot:#160A11; --bacc:#D9A93C;">02</div>
+              <div class="fan-book" style="--i:2; --btop:#ECF2FC; --bbot:#c9d8f2; --bacc:#1B45D8;">03</div>
+              <div class="fan-book" style="--i:3; --btop:#175F45; --bbot:#062017; --bacc:#D2A94F;">04</div>
+            </div>
+          </div>
+        </div>
+        <div class="comp-meta">
+          <span class="eyebrow">The Founder Series</span>
+          <h2>Four Books. One System.</h2>
+          <p>From your first follower to your first sale. Battle-tested playbooks on growing a page, monetizing it, and building a business with AI. Written from real wins and real losses.</p>
+          <a href="ebooks.html" class="comp-cta">Explore the Series →</a>
+        </div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="section">
-      <div class="section-head reveal">
+    <!-- 4 · 4K CLIPS -->
+    <section class="comp comp-clips" style="--c-top:#1A2430; --c-bottom:#0A0F14; --c-accent:#9FB6CC; --c-faint:rgba(159,182,204,.12); --c-text:#EEF3F8; --c-muted:#93A5B6;">
+      <div class="comp-bg" aria-hidden="true"></div>
+      <div class="comp-inner">
+        <div class="stage" aria-hidden="true">
+          <div class="stage-tilt">
+            <div class="film-stack">
+              <div class="frame" style="--f:0;"></div>
+              <div class="frame" style="--f:1;"></div>
+              <div class="frame" style="--f:2;"></div>
+              <div class="frame" style="--f:3;"></div>
+              <div class="play-mark">▶</div>
+            </div>
+          </div>
+        </div>
+        <div class="comp-meta">
+          <span class="eyebrow">Cinematic Footage</span>
+          <h2>4K Clips, Ready to Post.</h2>
+          <p>The same premium footage powering @businessfounders. Shot and color-graded for maximum retention. Luxury, motivation, and business b-roll, delivered instantly.</p>
+          <a href="clips.html" class="comp-cta">Browse the Vault →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · JOIN AS EDITOR -->
+    <section class="comp comp-editor" style="--c-top:#3B1418; --c-bottom:#150809; --c-accent:#E0913A; --c-faint:rgba(224,145,58,.14); --c-text:#F8EFE6; --c-muted:#C29B92;">
+      <div class="comp-bg" aria-hidden="true"></div>
+      <div class="comp-inner">
+        <div class="stage" aria-hidden="true">
+          <div class="stage-tilt">
+            <div class="timeline">
+              <div class="track">
+                <div class="clip" style="flex:3; --cd:0ms;"></div>
+                <div class="clip muted" style="flex:2; --cd:60ms;"></div>
+                <div class="clip" style="flex:4; --cd:120ms;"></div>
+              </div>
+              <div class="track">
+                <div class="clip muted" style="flex:2; --cd:90ms;"></div>
+                <div class="clip" style="flex:5; --cd:150ms;"></div>
+                <div class="clip muted" style="flex:2; --cd:210ms;"></div>
+              </div>
+              <div class="track">
+                <div class="clip" style="flex:4; --cd:180ms;"></div>
+                <div class="clip muted" style="flex:3; --cd:240ms;"></div>
+                <div class="clip" style="flex:2; --cd:300ms;"></div>
+              </div>
+              <div class="track">
+                <div class="clip muted" style="flex:5; --cd:270ms;"></div>
+                <div class="clip" style="flex:3; --cd:330ms;"></div>
+              </div>
+              <div class="playhead"></div>
+            </div>
+          </div>
+        </div>
+        <div class="comp-meta">
+          <span class="eyebrow">Now Hiring</span>
+          <h2>Edit for Half a Million Founders.</h2>
+          <p>Talented editor? Work with one of the fastest-growing business pages on Instagram. Clear rates agreed upfront, on-time payments, and portfolio proof that opens doors.</p>
+          <a href="editor.html" class="comp-cta">Apply Now →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · TESTIMONIALS -->
+    <section class="comp comp-quotes">
+      <div class="quotes-head">
         <span class="eyebrow">Testimonials</span>
         <h2>What Founders Are <span class="gold">Saying</span></h2>
       </div>
-      <div class="grid grid-3">
-        <div class="card reveal">
+      <div class="quotes-row">
+        <div class="quote-card" style="--qd:0ms;">
           <div class="stars">★★★★★</div>
           <p class="quote">"The Wealth Blueprint e-book paid for itself in the first week. Straight value, zero fluff."</p>
           <div class="quote-author">
@@ -105,7 +176,7 @@
             <div><div class="name">Marcus R.</div><div class="role">E-com Founder, Austin, TX</div></div>
           </div>
         </div>
-        <div class="card reveal">
+        <div class="quote-card" style="--qd:130ms;">
           <div class="stars">★★★★★</div>
           <p class="quote">"Their 4K clip packs took my theme page from 8K to 60K followers in three months."</p>
           <div class="quote-author">
@@ -113,7 +184,7 @@
             <div><div class="name">Sarah L.</div><div class="role">Content Creator, Miami, FL</div></div>
           </div>
         </div>
-        <div class="card reveal">
+        <div class="quote-card" style="--qd:260ms;">
           <div class="stars">★★★★★</div>
           <p class="quote">"Applied as an editor, got onboarded in a week. Professional team, on-time payments."</p>
           <div class="quote-author">
@@ -122,68 +193,79 @@
           </div>
         </div>
       </div>
-
-      <div class="guarantee reveal">
-        <div class="guarantee-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Secure Checkout
-        </div>
-        <div class="guarantee-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          Instant Digital Delivery
-        </div>
-        <div class="guarantee-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          30-Day Money-Back Guarantee
-        </div>
-      </div>
     </section>
 
-    <!-- CTA BAND -->
-    <section class="cta-band reveal">
-      <span class="eyebrow">Ready?</span>
-      <h2>Your Empire Starts <span class="gold">Today.</span></h2>
-      <p>Join 500,000+ founders who chose growth over excuses.</p>
-      <a href="ebooks.html" class="btn btn-gold">Get Started</a>
-    </section>
+    <!-- 7 · STORY + CTA + FOOTER -->
+    <section class="comp comp-tail">
+      <div class="tail-inner">
+        <div class="story">
+          <span class="eyebrow">Our Story</span>
+          <h2>Built by Founders, <span class="gold">for Founders.</span></h2>
+          <p>The team behind @businessfounders wanted to build something different: content and products with real standards. From our content to our checkout experience, quality is non-negotiable.</p>
+          <a href="about.html" class="btn btn-ghost">Read Our Story</a>
+        </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <a href="index.html" class="nav-logo">BUSINESS <span>FOUNDERS</span></a>
-          <p>Premium business education and cinematic content for the next generation of founders.</p>
+        <div class="guarantee">
+          <div class="guarantee-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Secure Checkout
+          </div>
+          <div class="guarantee-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Instant Digital Delivery
+          </div>
+          <div class="guarantee-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            30-Day Money-Back Guarantee
+          </div>
         </div>
-        <div>
-          <h4>Products</h4>
-          <ul>
-            <li><a href="ebooks.html">E-Books</a></li>
-            <li><a href="clips.html">4K Video Clips</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Company</h4>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="editor.html">Editor Careers</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="https://instagram.com/businessfounders" target="_blank" rel="noopener">Instagram: @businessfounders</a></li>
-          </ul>
+
+        <div class="tail-cta">
+          <span class="eyebrow">Ready?</span>
+          <h2>Your Empire Starts <span class="gold">Today.</span></h2>
+          <p>Join 500,000+ founders who chose growth over excuses.</p>
+          <a href="ebooks.html" class="btn btn-gold">Get Started</a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>© <span class="year"></span> Business Founders. All rights reserved.</span>
-        <span>Built for founders, by founders.</span>
-      </div>
-    </footer>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo">BUSINESS <span>FOUNDERS</span></a>
+            <p>Premium business education and cinematic content for the next generation of founders.</p>
+          </div>
+          <div>
+            <h4>Products</h4>
+            <ul>
+              <li><a href="ebooks.html">E-Books</a></li>
+              <li><a href="clips.html">4K Video Clips</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="editor.html">Editor Careers</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://instagram.com/businessfounders" target="_blank" rel="noopener">Instagram: @businessfounders</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span class="year"></span> Business Founders. All rights reserved.</span>
+          <span>Built for founders, by founders.</span>
+        </div>
+      </footer>
+    </section>
 
   </div>
 
-  <script type="module" src="js/scene.js"></script>
+  <script type="module" src="js/scene.js?v=3"></script>
+  <script src="js/home.js?v=1"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

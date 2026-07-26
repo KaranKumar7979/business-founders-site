@@ -168,7 +168,9 @@ window.addEventListener("resize", () => {
 // rendering the scene behind them just burns GPU and makes the
 // scroll-snap stutter. Only the intro and tail reveal the canvas.
 let sceneVisible = true;
-const sceneWindows = document.querySelectorAll(".comp-intro, .comp-tail");
+const sceneWindows = document.querySelectorAll(
+  ".comp-intro, .comp-tail, .comp-proof, .comp-quotes"
+);
 if (sceneWindows.length && "IntersectionObserver" in window) {
   const seen = new Map();
   const coverIO = new IntersectionObserver((entries) => {
