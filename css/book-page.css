@@ -407,6 +407,30 @@ body.drawn .node-glow { opacity: 0.45; }
   min-width: 22px;
 }
 
+/* collapsed by default: Part One heading + its two chapters show,
+   the toggle reveals the rest */
+.bp-toc:not(.open) > *:nth-child(n + 4) { display: none; }
+.bp-toc-toggle {
+  margin-top: 20px;
+  background: none;
+  border: 1px solid var(--bk-accent-soft);
+  color: var(--bk-accent);
+  padding: 11px 24px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s;
+}
+.bp-toc-toggle:hover,
+.bp-toc-toggle:focus-visible {
+  background: var(--bk-accent);
+  color: var(--bk-bg-bottom);
+}
+
 /* ---------- takeaways ---------- */
 .bp-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .bp-card {

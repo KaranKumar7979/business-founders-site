@@ -5,6 +5,17 @@
 // ============================================
 
 (function () {
+  // Collapsible table of contents
+  document.querySelectorAll(".bp-toc-toggle").forEach((btn) => {
+    const toc = document.querySelector(".bp-toc");
+    if (!toc) return;
+    btn.addEventListener("click", () => {
+      const open = toc.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open);
+      btn.textContent = open ? "Show less ↑" : btn.dataset.label;
+    });
+  });
+
   const stage = document.querySelector(".stage");
   const tiltEl = document.querySelector(".stage-tilt");
   if (!stage || !tiltEl) return;
