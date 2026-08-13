@@ -1,5 +1,5 @@
 // ============================================
-// BUSINESS FOUNDERS — Home compartment engine
+// BUSINESS FOUNDERS: Home compartment engine
 // Entrance choreography, scroll-linked tilt, and
 // the counting numbers in the proof compartment.
 // ============================================

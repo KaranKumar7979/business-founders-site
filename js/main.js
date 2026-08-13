@@ -1,5 +1,5 @@
 // ============================================
-// BUSINESS FOUNDERS — UI interactions
+// BUSINESS FOUNDERS: UI interactions
 // ============================================
 
 // Mobile nav toggle
@@ -40,7 +40,7 @@ document.querySelectorAll(".grid").forEach((grid) => {
 
       card.classList.add("card-3d");
       const pos = i % cols;
-      // Phones stack cards in one column — side tilts would just look
+      // Phones stack cards in one column, side tilts would just look
       // skewed, so rest flat there (touch tilt still applies)
       const mobile = window.matchMedia("(max-width: 680px)").matches;
       let rest;
@@ -99,7 +99,7 @@ checkReveals();
 
 // Lead forms: submit to Formspree via fetch.
 // Until a real form ID is set in the action, we never fake a
-// success — the visitor is told to DM instead, so no enquiry
+// success, the visitor is told to DM instead, so no enquiry
 // is silently lost.
 document.querySelectorAll("form.lead-form").forEach((form) => {
   const errorEl = form.querySelector(".form-error");
@@ -155,6 +155,64 @@ document.querySelectorAll("form.lead-form").forEach((form) => {
     }
   });
 });
+
+// ---------- Free-chapter email capture ----------
+// SET THIS before launch: create a form at formspree.io and paste the
+// endpoint here, e.g. "https://formspree.io/f/abcdwxyz".
+// While it is blank the form does not pretend to work: it tells the
+// visitor to DM on Instagram instead, so no address is silently lost.
+const NEWSLETTER_ENDPOINT = "";
+
+const leadForm = document.getElementById("lead-form");
+if (leadForm) {
+  const input = document.getElementById("lead-email");
+  const note = document.getElementById("lead-note");
+  const button = leadForm.querySelector("button");
+
+  const say = (msg, ok) => {
+    note.innerHTML = msg;
+    note.classList.toggle("ok", !!ok);
+  };
+  const DM = '<a href="https://instagram.com/businessfounders" target="_blank" rel="noopener">DM us on Instagram</a>';
+
+  leadForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = input.value.trim();
+
+    if (!input.checkValidity() || !email) {
+      input.setAttribute("aria-invalid", "true");
+      say("Please enter a valid email address.");
+      input.focus();
+      return;
+    }
+    input.removeAttribute("aria-invalid");
+
+    if (!NEWSLETTER_ENDPOINT) {
+      say("Sign-ups aren't live yet. " + DM + " and we'll send the chapter over.");
+      return;
+    }
+
+    button.disabled = true;
+    const original = button.textContent;
+    button.textContent = "Sending...";
+
+    try {
+      const res = await fetch(NEWSLETTER_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "free-chapter" }),
+      });
+      if (!res.ok) throw new Error(res.status);
+      leadForm.reset();
+      say("Check your inbox. Chapter one is on its way.", true);
+      button.textContent = "Sent";
+    } catch (err) {
+      button.disabled = false;
+      button.textContent = original;
+      say("That didn't go through. Try again, or " + DM + ".");
+    }
+  });
+}
 
 // Footer year
 document.querySelectorAll(".year").forEach((el) => {

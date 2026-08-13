@@ -1,16 +1,16 @@
 // ============================================
-// BUSINESS FOUNDERS — Founder Series compartments
+// BUSINESS FOUNDERS: Founder Series compartments
 // One full-screen themed section per book, rendered
 // from BOOK_THEMES (js/books-config.js).
 //
 // Choreography model:
-//   .shown  — section entered the viewport: the book sweeps in
+//   .shown  : section entered the viewport: the book sweeps in
 //             from the right and the meta text follows (replays
 //             every visit so scrolling back re-runs the show).
-//   .active — section is centre-stage (snapped): the book's
+//   .active: section is centre-stage (snapped): the book's
 //             signature effect plays (shelf opens, lift rises,
 //             curve node glows, grid ripples gold).
-//   --scrollp / rotateX tilt — continuous scroll-linked motion.
+//   --scrollp / rotateX tilt, continuous scroll-linked motion.
 //
 // Animation rules: transform + opacity only; pre-rendered
 // shadow/glow layers are cross-faded, never animated shadows.
@@ -232,7 +232,7 @@
   // ---------- section observers ----------
   // .shown: entrance choreography, replays on every visit.
   // Fires at 55% visibility so the snap animation has finished
-  // landing the section before the book starts moving — running
+  // landing the section before the book starts moving, running
   // both at once makes the snap stall on phones.
   const showIO = new IntersectionObserver(
     (entries) => {
@@ -245,7 +245,7 @@
   comps.forEach(({ el }) => showIO.observe(el));
   document.querySelectorAll(".comp-bundle").forEach((s) => showIO.observe(s));
 
-  // .active: centre-stage — the snapped section plays its full effect
+  // .active: centre-stage, the snapped section plays its full effect
   const activeIO = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

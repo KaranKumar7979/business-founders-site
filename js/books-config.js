@@ -1,5 +1,5 @@
 // ============================================
-// BUSINESS FOUNDERS — Founder Series themes
+// BUSINESS FOUNDERS: Founder Series themes
 // One entry per book. js/books.js renders a card
 // from each entry; tweak colours here only.
 // ============================================
@@ -58,7 +58,7 @@ const BOOK_THEMES = [
       deep: "#1E3A8A",
       text: "#121A2B",
       // Spec palette said #78829B, but that's only 3.3:1 against the
-      // light background — fails WCAG for body text. Darkened to pass 4.5:1.
+      // light background, fails WCAG for body text. Darkened to pass 4.5:1.
       muted: "#586380",
     },
   },

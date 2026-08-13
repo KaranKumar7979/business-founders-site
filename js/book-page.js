@@ -1,5 +1,5 @@
 // ============================================
-// BUSINESS FOUNDERS — Book detail page effects
+// BUSINESS FOUNDERS: Book detail page effects
 // Reads data-effect from <body> and drives the
 // hero book's signature 3D behaviour.
 // ============================================

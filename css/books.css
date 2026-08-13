@@ -1,13 +1,13 @@
 /* ============================================
-   BUSINESS FOUNDERS — Founder Series compartments
+   BUSINESS FOUNDERS: Founder Series compartments
    Full-screen themed sections, one per book, with
    scroll-snap. Palette arrives as CSS variables on
    each .comp from js/books-config.js.
 
    Choreography classes (set by js/books.js):
-   .shown  — entrance: book sweeps in from the right
-   .active — centre-stage: signature effect plays
-   --scrollp — -1..1 scroll position for parallax
+   .shown  : entrance: book sweeps in from the right
+   .active: centre-stage: signature effect plays
+   --scrollp: -1..1 scroll position for parallax
    ============================================ */
 
 /* strict paging: one flick moves exactly one compartment */
@@ -162,7 +162,7 @@ html {
 }
 .comp.active .stage::after { opacity: 0.9; }
 
-/* cover shells share fixed geometry — no layout shift */
+/* cover shells share fixed geometry, no layout shift */
 .book3d,
 .book-cover {
   aspect-ratio: 2 / 3;
@@ -242,7 +242,7 @@ html {
 }
 
 /* ============================================
-   Book 1 — Shelf Book (navy, serif)
+   Book 1: Shelf Book (navy, serif)
    Swings in rotated hard, settles on the shelf;
    centre-stage opens it toward the reader.
    ============================================ */
@@ -298,7 +298,7 @@ html {
   left: 0;
   width: 46%;
   background: linear-gradient(105deg, transparent 8%, var(--bk-accent-soft) 50%, transparent 92%);
-  /* parked fully clear of the cover — the skew's top corner
+  /* parked fully clear of the cover, the skew's top corner
      otherwise pokes back into view at the top-left */
   transform: translateX(-180%) skewX(-16deg);
   animation: rimSweep 7s linear infinite;
@@ -313,7 +313,7 @@ html {
 }
 
 /* ============================================
-   Book 2 — Lift-off (light cobalt, minimal)
+   Book 2: Lift-off (light cobalt, minimal)
    Rises into frame from below; centre-stage lifts
    it off the ground with the glow underneath.
    ============================================ */
@@ -365,7 +365,7 @@ html {
 }
 
 /* ============================================
-   Book 3 — The Rising Curve (emerald)
+   Book 3: The Rising Curve (emerald)
    Curve draws itself on every section entry;
    centre-stage ignites the endpoint node.
    ============================================ */
@@ -416,7 +416,7 @@ html {
 }
 
 /* ============================================
-   Book 4 — The Grid Turns Gold (wine)
+   Book 4: The Grid Turns Gold (wine)
    Tiles cascade in diagonally on entry, then the
    centre-stage ripple lifts them and turns them gold.
    ============================================ */

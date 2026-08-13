@@ -1,5 +1,5 @@
 // ============================================
-// BUSINESS FOUNDERS — 3D Background Scene
+// BUSINESS FOUNDERS: 3D Background Scene
 // Gold wireframe geometry + particle field
 // ============================================
 import * as THREE from "three";
