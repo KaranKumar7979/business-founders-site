@@ -531,3 +531,31 @@ body.bp-light .stage::after { background: radial-gradient(ellipse at center, rgb
   }
   body.drawn .curve-path { stroke-dashoffset: 0; }
 }
+
+/* primary buy plus instant chapter preview, side by side */
+.bp-cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.bp-cta-ghost {
+  display: inline-block;
+  padding: 15px 30px;
+  border: 1px solid var(--bk-accent);
+  border-radius: 2px;
+  color: var(--bk-accent);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+.bp-cta-ghost:hover,
+.bp-cta-ghost:focus-visible {
+  background: var(--bk-accent);
+  color: var(--bk-bg-bottom);
+  transform: translateY(-2px);
+}
+.bp-buy .bp-cta-row { justify-content: center; }

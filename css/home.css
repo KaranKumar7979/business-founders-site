@@ -286,48 +286,11 @@ html {
   background: #b9ae97;
 }
 
-/* email capture form */
-.chapter-form {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-.chapter-form input {
-  flex: 1 1 210px;
-  min-width: 0;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 2px;
-  color: var(--c-text);
-  font-family: var(--font-body);
-  font-size: 15px;
-  padding: 13px 16px;
-  transition: border-color 0.25s, box-shadow 0.25s;
-}
-.chapter-form input::placeholder { color: var(--c-muted); opacity: 0.75; }
-.chapter-form input:focus {
-  outline: none;
-  border-color: var(--c-accent);
-  box-shadow: 0 0 0 3px rgba(203, 168, 92, 0.18);
-}
-.chapter-form input[aria-invalid="true"] { border-color: #e0736a; }
-.chapter-form .comp-cta {
-  border: 1px solid var(--c-accent);
-  background: var(--c-accent);
-  color: var(--c-bottom);
-  cursor: pointer;
-  font-family: var(--font-body);
-}
-.chapter-form .comp-cta:disabled { opacity: 0.6; cursor: default; transform: none; }
 .lead-note {
-  min-height: 22px;
-  margin: 0;
-  font-size: 13.5px;
+  margin: 14px 0 0;
+  font-size: 13px;
   color: var(--c-muted);
 }
-.lead-note a { color: var(--c-accent); }
-.lead-note.ok { color: var(--c-accent); }
 
 /* ============================================
    Retired: 4K Clips film frames
@@ -543,7 +506,7 @@ html {
      needs a tighter stage to stay inside one snapped screen */
   .comp-lead .stage { width: min(46vw, 190px); }
   .comp-lead .comp-inner { gap: 22px; }
-  .comp-lead .chapter-form { justify-content: center; }
+  .comp-lead .lead-note { max-width: 320px; margin-inline: auto; }
 }
 @media (max-height: 700px) and (max-width: 900px) {
   .stage { width: min(52vw, 240px); }

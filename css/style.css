@@ -636,3 +636,11 @@ a.card { text-decoration: none; color: inherit; display: block; }
   text-transform: none;
   letter-spacing: 0;
 }
+
+/* note shown when a link's destination is not published yet */
+.pending-note {
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--gold);
+}
