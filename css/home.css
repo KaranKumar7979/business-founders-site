@@ -248,6 +248,7 @@ html {
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.45);
   transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
+.sheet-deep  { transform: translateZ(-14px) rotate(0deg); opacity: 0.3; }
 .sheet-back  { transform: translateZ(0) rotate(0deg); opacity: 0.45; }
 .sheet-mid   { transform: translateZ(14px) rotate(0deg); opacity: 0.7; }
 .sheet-front {
@@ -255,6 +256,8 @@ html {
   padding: 13% 11%;
   border-top: 3px solid var(--c-accent);
 }
+/* one sheet per book: four fanned corners, the front one lifting off */
+.comp.shown .sheet-deep { transform: translateZ(-14px) translate(11%, 8%) rotate(7.6deg); }
 .comp.shown .sheet-back { transform: translateZ(0) translate(7%, 5%) rotate(5deg); }
 .comp.shown .sheet-mid  { transform: translateZ(14px) translate(3%, 2%) rotate(2.4deg); }
 .comp.shown .sheet-front {
