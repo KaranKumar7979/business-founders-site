@@ -577,3 +577,12 @@ html {
   }
   .comp.shown.fx-curve .curve-path { stroke-dashoffset: 0; }
 }
+
+/* final-sale disclosure under the bundle CTA */
+.bundle-note {
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-dim);
+  max-width: 380px;
+}
