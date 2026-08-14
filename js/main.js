@@ -157,12 +157,10 @@ document.querySelectorAll("form.lead-form").forEach((form) => {
 });
 
 // ---------- Free-chapter email capture ----------
-// SET THIS before launch: create a form at formspree.io and paste the
-// endpoint here, e.g. "https://formspree.io/f/abcdwxyz".
-// While it is blank the form does not pretend to work: it tells the
-// visitor to DM on Instagram instead, so no address is silently lost.
-const NEWSLETTER_ENDPOINT = "";
-
+// Same Formspree convention as the hire form: the endpoint lives in the
+// form's action, and while it still reads REPLACE_ME we never fake a
+// success. This one reports inline rather than swapping in a success
+// panel, because it sits inside a snapped full-screen compartment.
 const leadForm = document.getElementById("lead-form");
 if (leadForm) {
   const input = document.getElementById("lead-email");
@@ -187,7 +185,7 @@ if (leadForm) {
     }
     input.removeAttribute("aria-invalid");
 
-    if (!NEWSLETTER_ENDPOINT) {
+    if (leadForm.action.includes("REPLACE_ME")) {
       say("Sign-ups aren't live yet. " + DM + " and we'll send the chapter over.");
       return;
     }
@@ -197,10 +195,12 @@ if (leadForm) {
     button.textContent = "Sending...";
 
     try {
-      const res = await fetch(NEWSLETTER_ENDPOINT, {
+      const body = new FormData(leadForm);
+      body.append("source", "free-chapter");
+      const res = await fetch(leadForm.action, {
         method: "POST",
-        headers: { Accept: "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: "free-chapter" }),
+        headers: { Accept: "application/json" },
+        body,
       });
       if (!res.ok) throw new Error(res.status);
       leadForm.reset();

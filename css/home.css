@@ -284,13 +284,13 @@ html {
 }
 
 /* email capture form */
-.lead-form {
+.chapter-form {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 12px;
 }
-.lead-form input {
+.chapter-form input {
   flex: 1 1 210px;
   min-width: 0;
   background: rgba(255, 255, 255, 0.06);
@@ -302,21 +302,21 @@ html {
   padding: 13px 16px;
   transition: border-color 0.25s, box-shadow 0.25s;
 }
-.lead-form input::placeholder { color: var(--c-muted); opacity: 0.75; }
-.lead-form input:focus {
+.chapter-form input::placeholder { color: var(--c-muted); opacity: 0.75; }
+.chapter-form input:focus {
   outline: none;
   border-color: var(--c-accent);
   box-shadow: 0 0 0 3px rgba(203, 168, 92, 0.18);
 }
-.lead-form input[aria-invalid="true"] { border-color: #e0736a; }
-.lead-form .comp-cta {
+.chapter-form input[aria-invalid="true"] { border-color: #e0736a; }
+.chapter-form .comp-cta {
   border: 1px solid var(--c-accent);
   background: var(--c-accent);
   color: var(--c-bottom);
   cursor: pointer;
   font-family: var(--font-body);
 }
-.lead-form .comp-cta:disabled { opacity: 0.6; cursor: default; transform: none; }
+.chapter-form .comp-cta:disabled { opacity: 0.6; cursor: default; transform: none; }
 .lead-note {
   min-height: 22px;
   margin: 0;
@@ -540,7 +540,7 @@ html {
      needs a tighter stage to stay inside one snapped screen */
   .comp-lead .stage { width: min(46vw, 190px); }
   .comp-lead .comp-inner { gap: 22px; }
-  .comp-lead .lead-form { justify-content: center; }
+  .comp-lead .chapter-form { justify-content: center; }
 }
 @media (max-height: 700px) and (max-width: 900px) {
   .stage { width: min(52vw, 240px); }
