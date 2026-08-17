@@ -1,1 +1,7 @@
 .claude/
+
+# Source manuscripts. NEVER commit these: every file in this repo is
+# served publicly by GitHub Pages, so committing a paid book gives it
+# away for free. Free chapters are published from files/ instead.
+E-Books/
+*.docx
