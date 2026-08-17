@@ -123,7 +123,7 @@ document.querySelectorAll("form.lead-form").forEach((form) => {
 
     if (form.action.includes("REPLACE_ME")) {
       fail(
-        "Our enquiry form is being switched on shortly. In the meantime, please DM @businessfounders on Instagram and we'll pick it up there."
+        "Our enquiry form is being switched on shortly. In the meantime, please DM @businessfounders_ on Instagram and we'll pick it up there."
       );
       return;
     }
@@ -150,7 +150,7 @@ document.querySelectorAll("form.lead-form").forEach((form) => {
         button.textContent = label;
       }
       fail(
-        "Something went wrong sending that. Please try again, or DM @businessfounders on Instagram."
+        "Something went wrong sending that. Please try again, or DM @businessfounders_ on Instagram."
       );
     }
   });
