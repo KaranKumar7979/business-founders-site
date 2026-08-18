@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Lora:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css?v=3" />
-  <link rel="stylesheet" href="css/books.css?v=12" />
+  <link rel="stylesheet" href="css/books.css?v=13" />
   <script type="importmap">
     { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js" } }
   </script>
@@ -68,15 +68,58 @@
 
     <section class="comp comp-bundle">
       <div class="comp-bg bundle-bg" aria-hidden="true"></div>
-      <div class="comp-inner">
-        <div class="bundle-minis" id="bundle-minis" aria-hidden="true"></div>
-        <div class="comp-meta bundle-meta">
-          <span class="eyebrow">Bundle &amp; Save</span>
-          <h2 class="bundle-title">Get All Four for <span class="gold">$49</span></h2>
-          <p>The complete Founder Series: every playbook, from your first follower to your first sale. Save $27 versus buying separately.</p>
-          <a href="#" class="btn btn-gold">Get the Full Library</a>
-          <p class="bundle-note">Instant PDF delivery. Digital downloads are final sale, so read the free first chapters before you buy.</p>
+      <div class="bundle-wrap">
+        <div class="bundle-head">
+          <span class="eyebrow">Bundles</span>
+          <h2>Buy the Pair, or the Whole Path.</h2>
+          <p>Each book stands alone. They were written as a sequence, so the bundles follow the order things actually happen in.</p>
         </div>
+
+        <div class="bundle-ladder">
+
+          <article class="bundle-card">
+            <span class="bundle-kicker">Books 1 and 2</span>
+            <h3>The Theme Page Bundle</h3>
+            <p class="bundle-hook">Build the page. Then make it pay.</p>
+            <div class="bundle-price"><span class="now">$29</span><span class="was">$38</span></div>
+            <ul class="bundle-list">
+              <li>How to Grow a Theme Page From Scratch</li>
+              <li>Monetizing Your Existing Theme Page</li>
+              <li>103 pages, 24 chapters</li>
+            </ul>
+            <a href="https://businessfounders.gumroad.com/l/theme-page-bundle?wanted=true" class="btn btn-ghost" data-gumroad-single-product="true">Get the Pair</a>
+          </article>
+
+          <article class="bundle-card bundle-featured">
+            <span class="bundle-flag">Best value</span>
+            <span class="bundle-kicker">All four books</span>
+            <h3>The Complete Collection</h3>
+            <p class="bundle-hook">All four books. The complete path.</p>
+            <div class="bundle-price"><span class="now">$49</span><span class="was">$76</span></div>
+            <ul class="bundle-list">
+              <li>Every book in the Founder Series</li>
+              <li>From an empty page to a business that grows</li>
+              <li>208 pages, 48 chapters</li>
+            </ul>
+            <a href="https://businessfounders.gumroad.com/l/complete-collection?wanted=true" class="btn btn-gold" data-gumroad-single-product="true">Get the Full Library</a>
+          </article>
+
+          <article class="bundle-card">
+            <span class="bundle-kicker">Books 3 and 4</span>
+            <h3>The AI Business Bundle</h3>
+            <p class="bundle-hook">Launch it. Then grow it.</p>
+            <div class="bundle-price"><span class="now">$29</span><span class="was">$38</span></div>
+            <ul class="bundle-list">
+              <li>How to Launch a Business With AI</li>
+              <li>Growing Your Business With AI</li>
+              <li>105 pages, 24 chapters</li>
+            </ul>
+            <a href="https://businessfounders.gumroad.com/l/ai-business-bundle?wanted=true" class="btn btn-ghost" data-gumroad-single-product="true">Get the Pair</a>
+          </article>
+
+        </div>
+
+        <p class="bundle-note">Instant PDF delivery. Digital downloads are final sale, so read the free first chapters before you buy.</p>
       </div>
     </section>
 
@@ -149,5 +192,6 @@
   <script src="js/books-config.js?v=4"></script>
   <script src="js/books.js?v=7"></script>
   <script src="js/main.js?v=7"></script>
+  <script src="https://gumroad.com/js/gumroad.js"></script>
 </body>
 </html>

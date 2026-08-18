@@ -586,3 +586,166 @@ html {
   color: var(--text-dim);
   max-width: 380px;
 }
+
+/* ============================================
+   Bundle ladder: three tiers, compared side by side
+   Not a snap target. A buyer choosing between three
+   options needs to scroll freely, not one flick per screen.
+   ============================================ */
+.comp-bundle {
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+  min-height: auto;
+  padding: 110px 0 90px;
+}
+
+.bundle-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.bundle-head {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 52px;
+}
+.bundle-head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 14px;
+}
+.bundle-head p {
+  color: var(--text-dim);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.bundle-ladder {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.bundle-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 34px 28px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.bundle-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+
+.bundle-featured {
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(212, 175, 55, 0.06);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.bundle-flag {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: #0a0a0a;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.bundle-kicker {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.bundle-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.bundle-hook {
+  color: var(--text);
+  font-size: 15px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.bundle-price {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  margin-bottom: 20px;
+}
+.bundle-price .now {
+  font-family: var(--font-display);
+  font-size: 38px;
+  color: var(--gold);
+  line-height: 1;
+}
+.bundle-price .was {
+  color: var(--text-dim);
+  text-decoration: line-through;
+  font-size: 16px;
+}
+
+.bundle-list {
+  list-style: none;
+  margin: 0 0 26px;
+  padding: 0;
+  flex: 1;
+}
+.bundle-list li {
+  position: relative;
+  padding: 8px 0 8px 22px;
+  font-size: 14px;
+  color: var(--text-dim);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.bundle-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 10px;
+}
+
+.bundle-card .btn {
+  text-align: center;
+  width: 100%;
+}
+
+.bundle-note {
+  margin: 34px auto 0;
+  max-width: 520px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+@media (max-width: 900px) {
+  .bundle-ladder { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  /* the best value tier leads on a phone, where nobody scrolls sideways */
+  .bundle-featured { order: -1; }
+  .comp-bundle { padding: 80px 0 70px; }
+  .bundle-head { margin-bottom: 38px; }
+}
