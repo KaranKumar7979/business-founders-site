@@ -188,7 +188,20 @@
       `<span class="eyebrow comp-eyebrow">Book ${theme.num} of The Founder Series</span>` +
       `<h2>${theme.title}</h2>` +
       `<p>${theme.subtitle}</p>` +
-      `<a class="comp-cta" href="${theme.href}" aria-label="Get ${theme.title}">Get the Book →</a>`;
+      // Price and a free chapter belong on the shelf, not two clicks in.
+      // Without them a visitor swipes four screens before meeting a number.
+      (theme.price
+        ? `<div class="comp-price"><span class="now">${theme.price}</span>` +
+          (theme.priceWas ? `<span class="was">${theme.priceWas}</span>` : "") +
+          `</div>`
+        : "") +
+      `<div class="comp-actions">` +
+      `<a class="comp-cta" href="${theme.href}" aria-label="See ${theme.title}">See the Book →</a>` +
+      (theme.chapterPdf
+        ? `<a class="comp-cta comp-cta-ghost" href="${theme.chapterPdf}" target="_blank" rel="noopener"` +
+          ` aria-label="Read chapter one of ${theme.title}, free">Read Chapter One</a>`
+        : "") +
+      `</div>`;
     inner.appendChild(meta);
 
     sec.appendChild(inner);

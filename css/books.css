@@ -749,3 +749,59 @@ html {
   .comp-bundle { padding: 80px 0 70px; }
   .bundle-head { margin-bottom: 38px; }
 }
+
+/* price and dual action on each shelf card, so a visitor meets a
+   number and a free sample without leaving the shop page */
+.comp-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 22px;
+}
+.comp-price .now {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 1;
+  color: var(--c-accent);
+}
+.comp-price .was {
+  font-size: 15px;
+  color: var(--c-muted);
+  text-decoration: line-through;
+}
+
+.comp-actions {
+  display: flex;
+  gap: 11px;
+  flex-wrap: wrap;
+}
+.comp-cta-ghost {
+  background: transparent;
+  border-color: var(--c-muted);
+  color: var(--c-muted);
+}
+.comp-cta-ghost:hover,
+.comp-cta-ghost:focus-visible {
+  background: transparent;
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+
+@media (max-width: 900px) {
+  .comp-price { justify-content: center; margin-bottom: 16px; }
+  .comp-price .now { font-size: 28px; }
+  .comp-actions { justify-content: center; }
+  .comp-actions .comp-cta { padding: 12px 22px; font-size: 12px; }
+}
+
+/* The price row and the second action added height. Claw it back on
+   phones so each book still lands inside one snapped screen. */
+@media (max-width: 900px) {
+  #book-comps .comp-inner { padding-top: 84px; padding-bottom: 40px; gap: 20px; }
+  #book-comps .comp-meta p { font-size: 15px; margin-bottom: 16px; }
+  #book-comps .stage { width: min(52vw, 210px); }
+}
+@media (max-height: 700px) and (max-width: 900px) {
+  #book-comps .stage { width: min(42vw, 170px); }
+  #book-comps .comp-meta h2 { font-size: 22px; }
+}
