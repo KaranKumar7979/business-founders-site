@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Business Founders | Build Wealth. Build Legacy.</title>
-  <meta name="description" content="Premium business e-books and elite editing opportunities from @businessfounders_, followed by 200,000+ entrepreneurs." />
+  <meta name="description" content="Daily business reels for 200,000+ founders, four short playbooks on growing a page and building a business, and editors for hire. No hype, no recycled advice." />
 
   <link rel="canonical" href="https://thebusinessfounders.com/" />
   <meta name="theme-color" content="#060607" />
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Business Founders" />
   <meta property="og:title" content="Business Founders | Build Wealth. Build Legacy." />
-  <meta property="og:description" content="Premium business e-books and elite editing opportunities from @businessfounders_, followed by 200,000+ entrepreneurs." />
+  <meta property="og:description" content="Daily business reels for 200,000+ founders, four short playbooks on growing a page and building a business, and editors for hire. No hype, no recycled advice." />
   <meta property="og:url" content="https://thebusinessfounders.com/" />
   <meta property="og:image" content="https://thebusinessfounders.com/images/og-cover.png" />
   <meta property="og:image:width" content="1200" />
@@ -25,13 +25,13 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Business Founders | Build Wealth. Build Legacy." />
-  <meta name="twitter:description" content="Premium business e-books and elite editing opportunities from @businessfounders_, followed by 200,000+ entrepreneurs." />
+  <meta name="twitter:description" content="Daily business reels for 200,000+ founders, four short playbooks on growing a page and building a business, and editors for hire. No hype, no recycled advice." />
   <meta name="twitter:image" content="https://thebusinessfounders.com/images/og-cover.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css?v=3" />
-  <link rel="stylesheet" href="css/home.css?v=8" />
+  <link rel="stylesheet" href="css/home.css?v=10" />
   <script type="importmap">
     { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js" } }
   </script>
@@ -57,21 +57,26 @@
 
     <!-- 1 · INTRO -->
     <section class="comp comp-intro">
-      <span class="eyebrow">✦ &nbsp;Followed by 200,000+ Founders &nbsp;✦</span>
-      <h1>Build Wealth.<br />Build <em>Legacy.</em></h1>
+      <span class="eyebrow">✦ &nbsp;200,000+ Founders Follow @businessfounders_ &nbsp;✦</span>
+      <h1>Grow a Theme Page.<br />Then Make It <em>Pay.</em></h1>
       <p class="sub">
-        Premium business education, cinematic content, and elite opportunities,
-        curated by the team behind <strong>@businessfounders_</strong>.
+        Daily business content for 200,000 founders, plus four short playbooks on
+        building a US audience, turning it into income, and launching a business with AI.
       </p>
       <div class="hero-ctas">
-        <a href="ebooks.html" class="btn btn-gold">Explore E-Books</a>
-        <a href="hire-editor.html" class="btn btn-ghost">Hire an Editor</a>
+        <a href="ebooks.html" class="btn btn-gold">The Four Books, from $14</a>
+        <a href="https://instagram.com/businessfounders_" target="_blank" rel="noopener" class="btn btn-ghost">Follow the Page</a>
       </div>
       <div class="scroll-hint" aria-hidden="true"><span>↓</span></div>
     </section>
 
-    <!-- 2 · THE PROOF -->
-    <section class="comp comp-proof">
+    <!-- 2 · FROM THE PAGE -->
+    <!-- js/feed.js swaps this for the reel grid once js/feed-config.js
+         has entries. Until then nothing renders here at all. -->
+    <div id="page-feed" hidden></div>
+
+    <!-- 3 · THE PROOF -->
+    <section class="comp comp-proof" id="what-we-do">
       <div class="section-head">
         <span class="eyebrow">The Numbers</span>
         <h2>Built on <span class="gold">Real Results.</span></h2>
@@ -97,7 +102,7 @@
       <div class="proof-rule" aria-hidden="true"></div>
     </section>
 
-    <!-- 3 · E-BOOKS -->
+    <!-- 4 · E-BOOKS -->
     <section class="comp comp-books" style="--c-top:#1B3C58; --c-bottom:#0E2334; --c-accent:#C9A24C; --c-faint:rgba(201,162,76,.14); --c-text:#F4EFE4; --c-muted:#C9BFAC;">
       <div class="comp-bg" aria-hidden="true"></div>
       <div class="comp-inner">
@@ -120,7 +125,7 @@
       </div>
     </section>
 
-    <!-- 4 · FREE CHAPTER -->
+    <!-- 5 · FREE CHAPTER -->
     <section class="comp comp-lead" style="--c-top:#123A32; --c-bottom:#071714; --c-accent:#CBA85C; --c-faint:rgba(203,168,92,.15); --c-text:#EFF5F1; --c-muted:#9FB8AE;">
       <div class="comp-bg" aria-hidden="true"></div>
       <div class="comp-inner">
@@ -150,7 +155,7 @@
       </div>
     </section>
 
-    <!-- 5 · HIRE AN EDITOR -->
+    <!-- 6 · HIRE AN EDITOR -->
     <section class="comp comp-editor" style="--c-top:#3B1418; --c-bottom:#150809; --c-accent:#E0913A; --c-faint:rgba(224,145,58,.14); --c-text:#F8EFE6; --c-muted:#C29B92;">
       <div class="comp-bg" aria-hidden="true"></div>
       <div class="comp-inner">
@@ -185,72 +190,12 @@
           <h2>Get an Editor Who Gets Your Page.</h2>
           <p>Tired of editing everything yourself? Leave your name and handle and we will reach out to talk it through, then match you with an editor who fits your page.</p>
           <a href="hire-editor.html" class="comp-cta">Hire an Editor →</a>
+          <p class="comp-note">Are you an editor? <a href="editor.html">Applications open soon.</a></p>
         </div>
       </div>
     </section>
 
-    <!-- 6 · BECOME AN EDITOR (COMING SOON) -->
-    <section class="comp comp-become" style="--c-top:#2E2119; --c-bottom:#100B08; --c-accent:#E0913A; --c-faint:rgba(224,145,58,.12); --c-text:#F5EDE4; --c-muted:#AE9A88;">
-      <div class="comp-bg" aria-hidden="true"></div>
-      <div class="comp-inner">
-        <div class="stage" aria-hidden="true">
-          <div class="stage-tilt">
-            <div class="roster-card">
-              <div class="roster-avatar"></div>
-              <div class="roster-line w70"></div>
-              <div class="roster-line w45"></div>
-              <div class="roster-rule"></div>
-              <div class="roster-line w85"></div>
-              <div class="roster-line w60"></div>
-              <div class="roster-ribbon">Opening Soon</div>
-              <div class="roster-shine"></div>
-            </div>
-          </div>
-        </div>
-        <div class="comp-meta">
-          <span class="eyebrow">For Editors</span>
-          <h2>Get Hired as an Editor.</h2>
-          <p>Editor applications aren't open yet, and we'd rather say so than collect applications we can't act on. When they open: paid per project, consistent volume, and your edits in front of 200,000+ founders.</p>
-          <a href="editor.html" class="comp-cta">See What's Coming →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7 · TESTIMONIALS -->
-    <section class="comp comp-quotes">
-      <div class="quotes-head">
-        <span class="eyebrow">Testimonials</span>
-        <h2>What Founders Are <span class="gold">Saying</span></h2>
-      </div>
-      <div class="quotes-row">
-        <div class="quote-card" style="--qd:0ms;">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"The Wealth Blueprint e-book paid for itself in the first week. Straight value, zero fluff."</p>
-          <div class="quote-author">
-            <div class="avatar">MR</div>
-            <div><div class="name">Marcus R.</div><div class="role">E-com Founder, Austin, TX</div></div>
-          </div>
-        </div>
-        <div class="quote-card" style="--qd:130ms;">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"I followed the growth playbook to the letter. My page went from 8K to 60K in three months."</p>
-          <div class="quote-author">
-            <div class="avatar">SL</div>
-            <div><div class="name">Sarah L.</div><div class="role">Content Creator, Miami, FL</div></div>
-          </div>
-        </div>
-        <div class="quote-card" style="--qd:260ms;">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"Applied as an editor, got onboarded in a week. Professional team, on-time payments."</p>
-          <div class="quote-author">
-            <div class="avatar">DK</div>
-            <div><div class="name">David K.</div><div class="role">Video Editor, Chicago, IL</div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8 · STORY + CTA + FOOTER -->
+    <!-- 7 · STORY + CTA + FOOTER -->
     <section class="comp comp-tail">
       <div class="tail-inner">
         <div class="story">
@@ -332,6 +277,8 @@
 
   <script type="module" src="js/scene.js?v=3"></script>
   <script src="js/home.js?v=1"></script>
+  <script src="js/feed-config.js?v=1"></script>
+  <script src="js/feed.js?v=1"></script>
   <script src="js/main.js?v=7"></script>
   <script src="https://gumroad.com/js/gumroad.js"></script>
 </body>
