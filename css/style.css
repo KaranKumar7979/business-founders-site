@@ -644,3 +644,24 @@ a.card { text-decoration: none; color: inherit; display: block; }
   line-height: 1.5;
   color: var(--gold);
 }
+
+/* Links inside running text had no styling at all, so browsers fell back
+   to their default blue. Each context sets its own accent variable, so
+   the cascade picks the compartment accent, then the book page accent,
+   then the site gold. Scoped to paragraphs and list items, since links
+   that wrap whole cards style themselves. */
+.page p a:not([class]),
+.page li a:not([class]) {
+  color: var(--c-accent, var(--bk-accent, var(--gold)));
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  transition: text-decoration-color 0.25s;
+}
+.page p a:not([class]):hover,
+.page p a:not([class]):focus-visible,
+.page li a:not([class]):hover,
+.page li a:not([class]):focus-visible {
+  text-decoration-color: currentColor;
+}
