@@ -805,3 +805,28 @@ html {
   #book-comps .stage { width: min(42vw, 170px); }
   #book-comps .comp-meta h2 { font-size: 22px; }
 }
+
+/* Real covers need a frame the typographic stand-ins never did. Book 3 is
+   the only light cover, so on a near-black page it would otherwise read as
+   a bright rectangle with no edge. Framing all four keeps the shelf even,
+   and the light one gets a slightly stronger edge so it still sits on the
+   page rather than floating over it. */
+.book-cover picture,
+.book-face picture,
+.book3d picture {
+  border-radius: inherit;
+  overflow: hidden;
+}
+.cover-img {
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+    inset 0 0 60px rgba(0, 0, 0, 0.2);
+}
+/* the ice-blue cover, marked by its own accent variable */
+[style*="1B45D8"] .cover-img,
+.fx-lift .cover-img {
+  box-shadow:
+    inset 0 0 0 1px rgba(10, 20, 60, 0.32),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}

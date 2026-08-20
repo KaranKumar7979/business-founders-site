@@ -120,8 +120,16 @@
   }
 
   function buildGridCover(theme) {
-    // The 3x3 grid IS the cover: tiles cascade in on entry, then
-    // the centre-stage ripple lifts them and turns them gold
+    // The 3x3 grid was the stand-in cover: tiles cascade in on entry, then
+    // the centre-stage ripple lifts them and turns them gold. The real
+    // cover has that same grid printed on it, so once it exists the
+    // artwork wins and the tiles would only double it up.
+    if (theme.cover) {
+      const real = document.createElement("div");
+      real.className = "book-cover";
+      real.appendChild(coverImage(theme));
+      return real;
+    }
     const cover = document.createElement("div");
     cover.className = "book-cover grid-cover";
     for (let r = 0; r < 3; r++) {

@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css?v=4" />
-  <link rel="stylesheet" href="css/book-page.css?v=11" />
+  <link rel="stylesheet" href="css/book-page.css?v=12" />
 </head>
 <body class="book-page fx-grid" data-effect="grid" style="--bk-bg-top:#3A1226; --bk-bg-bottom:#160A11; --bk-accent:#D9A93C; --bk-accent-soft:rgba(217,169,60,.45); --bk-accent-faint:rgba(217,169,60,.14); --bk-text:#F6F1E6; --bk-muted:#B896A5; --bk-font:'Poppins', 'Inter', sans-serif;">
 
@@ -67,16 +67,12 @@
         </div>
         <div class="stage" aria-hidden="true">
           <div class="stage-tilt">
-            <div class="book-cover grid-cover">
-              <div class="tile" style="--tile-c:rgb(74,34,51); --lift:12px; --rd:0ms;"></div>
-              <div class="tile" style="--tile-c:rgb(110,68,53); --lift:22px; --rd:70ms;"></div>
-              <div class="tile" style="--tile-c:rgb(146,102,56); --lift:32px; --rd:140ms;"></div>
-              <div class="tile" style="--tile-c:rgb(110,68,53); --lift:22px; --rd:70ms;"></div>
-              <div class="tile" style="--tile-c:rgb(146,102,56); --lift:32px; --rd:140ms;"></div>
-              <div class="tile" style="--tile-c:rgb(181,135,58); --lift:42px; --rd:210ms;"></div>
-              <div class="tile" style="--tile-c:rgb(146,102,56); --lift:32px; --rd:140ms;"></div>
-              <div class="tile" style="--tile-c:rgb(181,135,58); --lift:42px; --rd:210ms;"></div>
-              <div class="tile" style="--tile-c:rgb(217,169,60); --lift:52px; --rd:280ms;"></div>
+            <div class="book-cover">
+                <picture>
+                  <source srcset="images/covers/book-2-monetizing.webp" type="image/webp" />
+                  <img src="images/covers/book-2-monetizing.png" alt="Cover of Monetizing Your Existing Theme Page" class="cover-img" width="800" height="1200" decoding="async" fetchpriority="high" />
+                </picture>
+              </div>
             </div>
           </div>
         </div>
