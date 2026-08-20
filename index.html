@@ -149,7 +149,13 @@
           <span class="eyebrow">Free Sampler</span>
           <h2>Chapter One of Every Book. Free.</h2>
           <p>The opening chapter of all four books in the Founder Series, sent as a single PDF. Read the lot, then decide what is worth buying. Unsubscribe in one click.</p>
-          <a class="comp-cta" href="https://businessfounders.gumroad.com/l/free-sampler?wanted=true" data-gumroad-single-product="true">Get the Free Sampler</a>
+          <!-- Gumroad will not send a zero-price product to checkout from
+               /l/free-sampler?wanted=true, it just shows the product page.
+               This is the checkout URL Gumroad itself redirects paid
+               products to. "cqtsn" is the sampler's Gumroad permalink, so
+               if that product is ever deleted and recreated this link has
+               to be updated with the new one. -->
+          <a class="comp-cta" href="https://gumroad.com/checkout?id=free-sampler&amp;price=0&amp;product=cqtsn&amp;rent=false&amp;wanted=true" data-gumroad-single-product="true">Get the Free Sampler</a>
           <p class="lead-note">Delivered instantly. No card, no payment details.</p>
         </div>
       </div>
