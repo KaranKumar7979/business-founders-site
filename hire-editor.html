@@ -88,11 +88,10 @@
       </div>
 
       <div class="form-wrap reveal">
-        <!-- To go live: create a form at formspree.io and replace
-             REPLACE_ME below with your form ID (looks like "xayzbwqd").
-             Until then the form shows a DM fallback instead of
-             pretending a submission succeeded. -->
-        <form id="hire-form" class="lead-form" action="https://formspree.io/f/REPLACE_ME" method="POST" novalidate>
+        <!-- Live Formspree endpoint. Submissions land in the inbox set on
+             that form, and main.js posts by fetch so the visitor never
+             leaves the page. -->
+        <form id="hire-form" class="lead-form" action="https://formspree.io/f/mrpzjqaq" method="POST" novalidate>
           <div class="form-row">
             <div class="field">
               <label for="name">Your Name *</label>
@@ -182,6 +181,6 @@
   </div>
 
   <script type="module" src="js/scene.js?v=3"></script>
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=8"></script>
 </body>
 </html>
