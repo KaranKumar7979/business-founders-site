@@ -75,7 +75,10 @@ const BOOK_THEMES = [
     title: "Growing Your Business With AI",
     subtitle: "Get More Customers and Revenue From What You Already Have",
     href: "book-04.html",
-    cover: { webp: "images/covers/book-4-growing-with-ai.webp", png: "images/covers/book-4-growing-with-ai.png" },
+    // TEMPORARY: cover disabled so the drawn curve animation is visible
+    // again on the shelf. Restore this line to bring the artwork back.
+    // cover: { webp: "images/covers/book-4-growing-with-ai.webp", png: "images/covers/book-4-growing-with-ai.png" },
+    cover: null,
     price: "$14",
     priceWas: "$19",
     chapterPdf: "files/chapter-04.pdf",
