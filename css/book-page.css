@@ -581,7 +581,15 @@ body.bp-light .stage::after { background: radial-gradient(ellipse at center, rgb
     inset 0 0 0 1px rgba(255, 255, 255, 0.14),
     inset 0 0 60px rgba(0, 0, 0, 0.2);
 }
-/* the one light cover, on its own light page */
+/* The one light cover, on its own light page. Same problem as the shelf:
+   a pale cover on a pale background needs an edge and a shadow. */
 body.bp-light .cover-img {
-  box-shadow: inset 0 0 0 1px rgba(10, 20, 60, 0.28);
+  box-shadow: inset 0 0 0 1px rgba(27, 69, 216, 0.28);
+}
+body.bp-light .book-cover,
+body.bp-light .book3d {
+  box-shadow:
+    0 22px 60px rgba(27, 69, 216, 0.18),
+    0 3px 10px rgba(18, 26, 43, 0.12);
+  border-radius: 7px;
 }

@@ -106,6 +106,10 @@
     const cover = document.createElement("div");
     cover.className = "book-cover";
     cover.appendChild(theme.cover ? coverImage(theme) : coverText(theme));
+    // The drawn curve was for the typographic stand-in. The real cover has
+    // a rising curve printed on it, and no overlay can line up with a curve
+    // baked into an image, so the artwork keeps it to itself.
+    if (theme.cover) return cover;
     // Inline SVG so the curve can draw itself on section entry
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", "0 0 200 300");
