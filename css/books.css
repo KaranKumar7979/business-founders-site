@@ -313,7 +313,7 @@ html {
 }
 
 /* ============================================
-   Book 2: Lift-off (light cobalt, minimal)
+   Book 3: Lift-off (light cobalt, minimal)
    Rises into frame from below; centre-stage lifts
    it off the ground with the glow underneath.
    ============================================ */
@@ -365,7 +365,7 @@ html {
 }
 
 /* ============================================
-   Book 3: The Rising Curve (emerald)
+   Book 4: The Rising Curve (emerald)
    Curve draws itself on every section entry;
    centre-stage ignites the endpoint node.
    ============================================ */
@@ -416,9 +416,18 @@ html {
 }
 
 /* ============================================
-   Book 4: The Grid Turns Gold (wine)
-   Tiles cascade in diagonally on entry, then the
-   centre-stage ripple lifts them and turns them gold.
+   Book 2: The Grid Pays Out (wine)
+   Effects are keyed by fx- class, not by position, so
+   this file runs shelf, lift, curve, grid: books 1, 3,
+   4, 2. Reordering the series renumbers these labels
+   but must not reorder the blocks.
+
+   The cover prints a 3x3 grid running dark wine to
+   gold. Centre-stage sends a gold highlight down its
+   diagonal, one tile at a time. The .tile rules below
+   drove the typographic stand-in that the real artwork
+   replaced; they are kept for any book that ships
+   without a cover.
    ============================================ */
 .grid-cover {
   display: grid;
@@ -469,6 +478,30 @@ html {
 }
 .comp.fx-grid.active .tile::before { opacity: 0.7; }
 .comp.fx-grid.active .tile::after { opacity: 0.85; }
+
+/* Nine cells laid over the tiles printed on the real cover. Geometry
+   comes from js/books.js, measured off the artwork; the cells are near
+   perfect squares, so a 10% radius matches the printed corners at any
+   size. Opacity only, and only while the book is centre-stage. */
+.grid-pay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.pay-cell {
+  position: absolute;
+  border-radius: 10%;
+  background: var(--bk-accent);
+  opacity: 0;
+}
+.comp.fx-grid.active .pay-cell {
+  animation: gridPay 3.6s ease-in-out var(--pd, 0ms) infinite;
+}
+@keyframes gridPay {
+  0%, 8% { opacity: 0; }
+  14% { opacity: 0.8; }
+  30%, 100% { opacity: 0; }
+}
 
 /* ============================================
    Bundle compartment
@@ -567,6 +600,7 @@ html {
   .tile,
   .tile::before,
   .tile::after,
+  .pay-cell,
   .mini,
   .scroll-hint,
   .fx-curve .curve-path,

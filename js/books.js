@@ -27,6 +27,16 @@
   // shelf choreographs its own rotation)
   const TILT = { shelf: 0, lift: 5, curve: 7, grid: 8 };
 
+  // Where the grid printed on book 02's cover actually sits, as a share
+  // of the artwork. Measured off images/covers/book-2-monetizing.png
+  // (800x1200, and .book-cover is 2/3, so these map straight across at
+  // any size). Re-measure if that export is ever redrawn, or the
+  // highlight drifts off the tiles.
+  const PAY_COLS = [29.13, 43.63, 58.13];
+  const PAY_ROWS = [55.33, 65.0, 74.67];
+  const PAY_W = 12.62;
+  const PAY_H = 8.39;
+
   // ---------- colour helpers ----------
   function hexToRgb(hex) {
     const n = parseInt(hex.slice(1), 16);
@@ -132,6 +142,26 @@
       const real = document.createElement("div");
       real.className = "book-cover";
       real.appendChild(coverImage(theme));
+      // The printed grid is regular, so unlike book 04's freehand curve
+      // an overlay can sit exactly on it. Nine cells, no artwork of
+      // their own, lit in diagonal order centre-stage: the cover's own
+      // dark-to-gold run, played out rather than just printed.
+      const pay = document.createElement("div");
+      pay.className = "grid-pay";
+      pay.setAttribute("aria-hidden", "true");
+      PAY_ROWS.forEach((top, r) => {
+        PAY_COLS.forEach((left, c) => {
+          const cell = document.createElement("span");
+          cell.className = "pay-cell";
+          cell.style.left = `${left}%`;
+          cell.style.top = `${top}%`;
+          cell.style.width = `${PAY_W}%`;
+          cell.style.height = `${PAY_H}%`;
+          cell.style.setProperty("--pd", `${(r + c) * 160}ms`);
+          pay.appendChild(cell);
+        });
+      });
+      real.appendChild(pay);
       return real;
     }
     const cover = document.createElement("div");
