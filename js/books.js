@@ -251,6 +251,10 @@
   comps.forEach(({ el, theme }) => {
     if (theme.effect !== "curve") return;
     const path = el.querySelector(".curve-path");
+    // A book with real cover art has the curve printed on it and draws no
+    // SVG. Without this guard the null throws here and kills the rest of
+    // the script, including the observers, leaving every book invisible.
+    if (!path) return;
     el.style.setProperty("--len", Math.ceil(path.getTotalLength()));
   });
 
