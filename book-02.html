@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css?v=4" />
-  <link rel="stylesheet" href="css/book-page.css?v=13" />
+  <link rel="stylesheet" href="css/book-page.css?v=14" />
 </head>
 <body class="book-page fx-grid" data-effect="grid" style="--bk-bg-top:#3A1226; --bk-bg-bottom:#160A11; --bk-accent:#D9A93C; --bk-accent-soft:rgba(217,169,60,.45); --bk-accent-faint:rgba(217,169,60,.14); --bk-text:#F6F1E6; --bk-muted:#B896A5; --bk-font:'Poppins', 'Inter', sans-serif;">
 
@@ -68,10 +68,23 @@
         <div class="stage" aria-hidden="true">
           <div class="stage-tilt">
             <div class="book-cover">
-                <picture>
-                  <source srcset="images/covers/book-2-monetizing.webp" type="image/webp" />
-                  <img src="images/covers/book-2-monetizing.png" alt="Cover of Monetizing Your Existing Theme Page" class="cover-img" width="800" height="1200" decoding="async" fetchpriority="high" />
-                </picture>
+              <picture>
+                <source srcset="images/covers/book-2-monetizing.webp" type="image/webp" />
+                <img src="images/covers/book-2-monetizing.png" alt="Cover of Monetizing Your Existing Theme Page" class="cover-img" width="800" height="1200" decoding="async" fetchpriority="high" />
+              </picture>
+              <!-- Nine cells laid over the grid printed on the cover, lit in
+                   diagonal order. Same geometry as the shelf: see PAY_COLS in
+                   js/books.js. Re-measure both if the artwork is redrawn. -->
+              <div class="grid-pay" aria-hidden="true">
+                <span class="pay-cell" style="left:29.13%; top:55.33%; width:12.62%; height:8.39%; --pd:0ms"></span>
+                <span class="pay-cell" style="left:43.63%; top:55.33%; width:12.62%; height:8.39%; --pd:160ms"></span>
+                <span class="pay-cell" style="left:58.13%; top:55.33%; width:12.62%; height:8.39%; --pd:320ms"></span>
+                <span class="pay-cell" style="left:29.13%; top:65.0%; width:12.62%; height:8.39%; --pd:160ms"></span>
+                <span class="pay-cell" style="left:43.63%; top:65.0%; width:12.62%; height:8.39%; --pd:320ms"></span>
+                <span class="pay-cell" style="left:58.13%; top:65.0%; width:12.62%; height:8.39%; --pd:480ms"></span>
+                <span class="pay-cell" style="left:29.13%; top:74.67%; width:12.62%; height:8.39%; --pd:320ms"></span>
+                <span class="pay-cell" style="left:43.63%; top:74.67%; width:12.62%; height:8.39%; --pd:480ms"></span>
+                <span class="pay-cell" style="left:58.13%; top:74.67%; width:12.62%; height:8.39%; --pd:640ms"></span>
               </div>
             </div>
           </div>
@@ -270,7 +283,7 @@
 
   </div>
 
-  <script src="js/book-page.js?v=2"></script>
+  <script src="js/book-page.js?v=3"></script>
   <script src="js/main.js?v=8"></script>
   <script src="https://gumroad.com/js/gumroad.js"></script>
 </body>

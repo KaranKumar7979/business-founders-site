@@ -39,17 +39,6 @@
     return;
   }
 
-  // Grid: periodic idle ripple
-  if (effect === "grid") {
-    const cover = document.querySelector(".grid-cover");
-    if (cover) {
-      setInterval(() => {
-        cover.classList.add("ripple");
-        setTimeout(() => cover.classList.remove("ripple"), 1700);
-      }, 5400);
-    }
-  }
-
   // Desktop: pointer tilt. Touch: gentle scroll tilt.
   if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     let raf = null;

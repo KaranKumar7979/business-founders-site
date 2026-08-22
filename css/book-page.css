@@ -252,44 +252,31 @@ body.drawn .node { opacity: 1; transition: opacity 0.3s 1.4s; animation: nodePul
 .fx-curve .node-glow { fill: var(--bk-accent-soft); opacity: 0; transition: opacity 0.5s 1.4s; }
 body.drawn .node-glow { opacity: 0.45; }
 
-/* grid (Book 02): resting depth + periodic gold ripple */
-.grid-cover {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 9px;
-  padding: 18px;
-  overflow: visible;
-  background: linear-gradient(180deg, var(--bk-bg-top), var(--bk-bg-bottom));
-  border: 1px solid var(--bk-accent-soft);
-  border-radius: 7px;
+/* grid (Book 02): a gold highlight travels the diagonal of the grid
+   printed on the cover. Nine cells in the markup sit exactly on the
+   printed tiles; they are near square, so a 10% radius matches the
+   printed corners at any size. Opacity only.
+   The old .grid-cover/.tile rules drove a typographic stand-in cover
+   that the real artwork replaced. No page built that markup any more,
+   so they were dead and are gone; the shelf keeps its own copy in
+   css/books.css for books that ship without cover art. */
+.grid-pay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
-.tile {
-  position: relative;
-  border-radius: 4px;
-  background: var(--tile-c);
-  transform: translateZ(calc(var(--lift) * 0.2));
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) var(--rd);
-}
-.tile::before {
-  content: "";
-  position: absolute; inset: 0;
-  border-radius: inherit;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.45);
-  opacity: 0.3;
-  transition: opacity 0.5s var(--rd);
-}
-.tile::after {
-  content: "";
-  position: absolute; inset: 0;
-  border-radius: inherit;
+.pay-cell {
+  position: absolute;
+  border-radius: 10%;
   background: var(--bk-accent);
   opacity: 0;
-  transition: opacity 0.5s var(--rd);
+  animation: gridPay 3.6s ease-in-out var(--pd, 0ms) infinite;
 }
-.grid-cover.ripple .tile { transform: translateZ(var(--lift)); }
-.grid-cover.ripple .tile::before { opacity: 0.7; }
-.grid-cover.ripple .tile::after { opacity: 0.85; }
+@keyframes gridPay {
+  0%, 8% { opacity: 0; }
+  14% { opacity: 0.8; }
+  30%, 100% { opacity: 0; }
+}
 
 /* ---------- content sections ---------- */
 .bp-section {
@@ -524,7 +511,7 @@ body.bp-light .stage::after { background: radial-gradient(ellipse at center, rgb
 
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
-  .book3d, .book-cover, .book-rim, .bk-spark, .tile, .tile::before, .tile::after,
+  .book3d, .book-cover, .book-rim, .bk-spark, .pay-cell,
   .stage-tilt, .fx-curve .curve-path, .fx-curve .node, .fx-curve .node-glow {
     transition: none !important;
     animation: none !important;
