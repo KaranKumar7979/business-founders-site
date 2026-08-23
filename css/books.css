@@ -792,15 +792,20 @@ html {
   gap: 10px;
   margin: 0 0 22px;
 }
+/* --bk-*, not --c-*: the --c-* set is defined inline on the homepage
+   compartments only. Book compartments are built by js/books.js, which
+   sets --bk-*, so --c-accent resolved to nothing here and the colour
+   fell back to the inherited near-white. On book 03's light shelf that
+   put the price at 1.07:1, effectively invisible. */
 .comp-price .now {
   font-family: var(--font-display);
   font-size: 34px;
   line-height: 1;
-  color: var(--c-accent);
+  color: var(--bk-accent);
 }
 .comp-price .was {
   font-size: 15px;
-  color: var(--c-muted);
+  color: var(--bk-muted);
   text-decoration: line-through;
 }
 
@@ -811,14 +816,14 @@ html {
 }
 .comp-cta-ghost {
   background: transparent;
-  border-color: var(--c-muted);
-  color: var(--c-muted);
+  border-color: var(--bk-muted);
+  color: var(--bk-muted);
 }
 .comp-cta-ghost:hover,
 .comp-cta-ghost:focus-visible {
   background: transparent;
-  border-color: var(--c-accent);
-  color: var(--c-accent);
+  border-color: var(--bk-accent);
+  color: var(--bk-accent);
 }
 
 @media (max-width: 900px) {

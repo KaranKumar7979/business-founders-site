@@ -218,6 +218,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(212, 175, 55, 0.06);
 }
 
+.card h2,
 .card h3 { font-size: 22px; margin: 18px 0 12px; }
 .card p { color: var(--text-dim); font-size: 15px; }
 
@@ -524,7 +525,7 @@ a.card { text-decoration: none; color: inherit; display: block; }
   gap: 40px;
   flex-wrap: wrap;
 }
-.footer h4 {
+.footer h3 {
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;

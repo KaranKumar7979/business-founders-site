@@ -6,9 +6,15 @@
 const toggle = document.querySelector(".nav-toggle");
 const links = document.querySelector(".nav-links");
 if (toggle && links) {
-  toggle.addEventListener("click", () => links.classList.toggle("open"));
+  // aria-expanded has to follow the class, or the button announces the
+  // same thing whether the menu is open or shut.
+  const setOpen = (open) => {
+    links.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+  };
+  toggle.addEventListener("click", () => setOpen(!links.classList.contains("open")));
   links.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => links.classList.remove("open"))
+    a.addEventListener("click", () => setOpen(false))
   );
 }
 

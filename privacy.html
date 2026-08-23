@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <link rel="stylesheet" href="css/doc.css?v=1" />
   <script type="importmap">
     { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js" } }
@@ -43,7 +43,7 @@
 
   <nav class="nav">
     <a href="index.html" class="nav-logo">BUSINESS <span>FOUNDERS</span></a>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="ebooks.html">E-Books</a></li>
@@ -58,7 +58,7 @@
     <header class="page-hero doc-hero">
       <span class="eyebrow">Legal</span>
       <h1>Privacy Policy</h1>
-      <p>Last updated: August 18, 2026. This policy explains what Business Founders does with your information when you visit thebusinessfounders.com, buy an e-book, download a free chapter, or apply through the editing services form. The short version: we collect very little, we use it only for the reason you gave it to us, and we never sell it. If anything here is unclear, email hello@thebusinessfounders.com and ask.</p>
+      <p>Last updated: August 23, 2026. This policy explains what Business Founders does with your information when you visit thebusinessfounders.com, buy an e-book, download a free chapter, or apply through the editing services form. The short version: we collect very little, we use it only for the reason you gave it to us, and we never sell it. If anything here is unclear, email hello@thebusinessfounders.com and ask.</p>
     </header>
 
     <div class="doc">
@@ -73,13 +73,14 @@
         <h2>Other companies that see your IP address</h2>
         <p>Some parts of the site load from other companies' servers, and any time your browser requests a file from another server, that server receives your IP address, the page you were on, and basic browser information. This is how the web works, but you should know who is involved.</p>
         <p>Google Fonts serves the typefaces used across the site. Your browser requests those font files from Google, so Google receives your IP address. jsDelivr, a public content delivery network, serves the Three.js graphics library used for the background visuals, so jsDelivr also receives your IP address.</p>
-        <p>We do not receive any of that data, and we do not ask either provider for reports about visitors. Their own privacy policies govern what they do with it. If you use a VPN or a browser that blocks third party requests, those requests are what your tools will be blocking.</p>
+        <p>We do not receive any of that data, and we do not ask those providers for reports about visitors. Their own privacy policies govern what they do with it. If you use a VPN or a browser that blocks third party requests, those requests are what your tools will be blocking.</p>
+        <p>Gumroad serves a checkout script on the homepage, the shop page and the four book pages. It is what lets a buy button open Gumroad's checkout instead of sending you away first. Because your browser fetches it from Gumroad, Gumroad's servers receive your IP address on those pages whether or not you buy anything, and that script may set cookies of Gumroad's own. Those cookies are Gumroad's rather than ours, and Gumroad's privacy policy governs them.</p>
         <p>GitHub Pages hosts and serves the site, including the free chapter PDFs. Like any web host, GitHub keeps standard server logs of requests, which typically include IP addresses, timestamps, and the pages and files requested. Those logs belong to GitHub and are handled under GitHub's privacy practices. We do not have access to raw visitor logs.</p>
       </section>
 
       <section class="doc-block">
         <h2>When you buy an e-book</h2>
-        <p>All purchases go through Gumroad. Gumroad is the merchant of record, which means Gumroad sells the product to you, processes the payment, and handles sales tax. You complete checkout on Gumroad's page, not on ours. There is no payment form on this website and no checkout code embedded in these pages.</p>
+        <p>All purchases go through Gumroad. Gumroad is the merchant of record, which means Gumroad sells the product to you, processes the payment, and handles sales tax. You complete checkout on Gumroad's page, not on ours. There is no payment form on this website, and no card details are ever entered on it or stored by it. The buy buttons do rely on Gumroad's own checkout script, which is described in the section above.</p>
         <p>Gumroad collects your email address and your payment details, and may collect billing information such as country for tax purposes. Gumroad's privacy policy and terms apply to that checkout.</p>
         <p>What we see as the seller is the order record in our Gumroad dashboard: your email address, which product you bought, the amount, and the date. We never see your full card number, your card security code, or your bank details. Those never touch this website, and the site stores no payment information at all.</p>
         <p>We use your purchase email to deliver the PDF, to send you the file again if you lose it, and to answer questions about your order. If we ever need to tell buyers about a problem with a book, for example a corrupted file or a corrected edition, we would use that email for that too. This policy covers how we handle your data. It does not set the terms of sale.</p>
@@ -104,7 +105,7 @@
       <section class="doc-block">
         <h2>What we never do</h2>
         <p>We do not sell your personal information, and we have never sold it. We do not rent it, trade it, or share it with data brokers, advertisers, or anyone building marketing lists. There is no ad network on this site to share it with.</p>
-        <p>We do not track you across other websites, and we do not run retargeting campaigns. Because the site sets no cookies of its own, there is no cookie banner, and there is nothing to opt out of.</p>
+        <p>We do not track you across other websites, and we do not run retargeting campaigns. The site sets no cookies of its own, so there is no cookie banner from us. The one third party that may set cookies here is Gumroad, through the checkout script on the shop and book pages, and those are governed by Gumroad's policy. Blocking third party cookies in your browser stops them without affecting anything you can read on this site.</p>
         <p>We do not ask for sensitive personal information: no government ID numbers, no financial account numbers, no health information. Please do not send any of that to us.</p>
       </section>
 
@@ -169,14 +170,14 @@
           <p>Premium business education for the next generation of founders.</p>
         </div>
         <div>
-          <h4>Products</h4>
+          <h3>Products</h3>
           <ul>
             <li><a href="ebooks.html">E-Books</a></li>
             <li><a href="hire-editor.html">Editing Services</a></li>
           </ul>
         </div>
         <div>
-          <h4>Company</h4>
+          <h3>Company</h3>
           <ul>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -184,7 +185,7 @@
           </ul>
         </div>
         <div>
-          <h4>Legal</h4>
+          <h3>Legal</h3>
           <ul>
             <li><a href="terms.html">Terms of Service</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
@@ -193,7 +194,7 @@
           </ul>
         </div>
         <div>
-          <h4>Connect</h4>
+          <h3>Connect</h3>
           <ul>
             <li><a href="mailto:hello@thebusinessfounders.com">hello@thebusinessfounders.com</a></li>
             <li><a href="https://instagram.com/businessfounders_" target="_blank" rel="noopener">Instagram: @businessfounders_</a></li>
@@ -209,6 +210,6 @@
   </div>
 
   <script type="module" src="js/scene.js?v=3"></script>
-  <script src="js/main.js?v=8"></script>
+  <script src="js/main.js?v=9"></script>
 </body>
 </html>

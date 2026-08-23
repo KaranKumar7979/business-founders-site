@@ -336,7 +336,10 @@ body.drawn .node-glow { opacity: 0.45; }
   font-size: 10.5px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--bk-accent) 75%, #444);
+  /* 40/#333, not 75/#444: at 10.5px this is not large text, so it needs
+     4.5:1. The old mix sat at 2.4-2.7:1 on the three gold books. This
+     clears 4.5 on all four while keeping the accent hue. */
+  color: color-mix(in srgb, var(--bk-accent) 40%, #333);
   margin-bottom: 14px;
   font-weight: 600;
 }
@@ -356,7 +359,7 @@ body.drawn .node-glow { opacity: 0.45; }
   font-size: 10.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #8b8577;
+  color: #6b6559;
 }
 .bp-spreads-hint {
   font-size: 12px;
@@ -431,6 +434,10 @@ body.drawn .node-glow { opacity: 0.45; }
 
 /* light theme (Book 03) needs darker card surface handling */
 body.bp-light .bp-card { background: rgba(255, 255, 255, 0.6); }
+/* The nav bar is translucent, so on the one light book page it composites
+   to rgb(70,72,76) and the 14px links land at 3.26:1. More opacity on this
+   page only takes them to 5.16:1. */
+body.bp-light .nav { background: rgba(6, 6, 7, 0.85); }
 body.bp-light .spread { box-shadow: 0 18px 40px rgba(30, 58, 138, 0.18); }
 body.bp-light .stage::after { background: radial-gradient(ellipse at center, rgba(30, 58, 138, 0.3), transparent 70%); }
 
