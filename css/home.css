@@ -537,6 +537,20 @@ html {
   .comp-meta p { font-size: 14px; margin-bottom: 18px; }
 }
 
+/* Tall phones. 6vw puts .fan-book on its 52px floor at phone widths, so
+   the fan rendered smaller here than on desktop and the panel read as
+   half empty. Must sit at top level: nested inside the max-height:700px
+   block above, min-height:701px can never match. */
+@media (max-width: 900px) and (min-height: 701px) {
+  /* the stage has to widen with the books or the flex row just shrinks
+     them back: four at 70px plus three 14px gaps needs about 323px */
+  .comp-books .stage { width: min(88vw, 340px); }
+  .fan-book { width: min(18vw, 76px); }
+  .comp-inner { gap: 40px; }
+  .comp-meta h2 { font-size: 31px; }
+  .comp-meta p { font-size: 16.5px; }
+}
+
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-snap-type: none; }
