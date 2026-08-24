@@ -193,9 +193,23 @@ document.querySelectorAll("form.lead-form").forEach((form) => {
   // reason to throttle does not apply, and it keeps working in contexts
   // where rAF is paused.
   const sync = () => {
+    const top = tail.getBoundingClientRect().top;
+
+    // Scrolling up, the free scroll stops at the tail's own top edge.
+    // Without this the momentum carries straight on and drags the
+    // compartment above halfway into view, which is not what a page
+    // break should look like. Pin to the boundary and hand control back
+    // to the pager, so going further up takes a deliberate flick.
+    if (released && top > 0) {
+      window.scrollTo(0, window.scrollY + top);
+      released = false;
+      root.style.scrollSnapType = "";
+      return;
+    }
+
     // "landed" means the tail's top has reached the top of the screen, so
     // the reader has finished paging and is now reading.
-    const landed = tail.getBoundingClientRect().top <= 1;
+    const landed = top <= 1;
     if (landed === released) return;
     released = landed;
     root.style.scrollSnapType = landed ? "none" : "";
