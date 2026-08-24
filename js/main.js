@@ -62,10 +62,9 @@ document.querySelectorAll(".grid").forEach((grid) => {
       card.style.transform = rest;
 
       card.addEventListener("mousemove", (e) => applyTilt(card, e.clientX, e.clientY));
-      card.addEventListener("touchmove", (e) => {
-        const t = e.touches[0];
-        if (t) applyTilt(card, t.clientX, t.clientY);
-      }, { passive: true });
+      // No touchmove tilt. On a phone a touchmove over a card is almost
+      // always a scroll, and tilting then warps whatever the reader is
+      // trying to read out from under their finger.
       ["mouseleave", "touchend"].forEach((ev) =>
         card.addEventListener(ev, () => {
           card.style.transform = card.dataset.rest || "";
@@ -114,6 +113,9 @@ document.querySelectorAll("form.lead-form").forEach((form) => {
 
   function fail(msg) {
     if (!errorEl) return;
+    // role=alert so the failure is actually announced. Set here as well
+    // as in the markup so any form that forgets it still works.
+    if (!errorEl.getAttribute("role")) errorEl.setAttribute("role", "alert");
     errorEl.textContent = msg;
     errorEl.hidden = false;
   }
@@ -148,7 +150,15 @@ document.querySelectorAll("form.lead-form").forEach((form) => {
       });
       if (!res.ok) throw new Error(res.status);
       form.style.display = "none";
-      if (successEl) successEl.style.display = "block";
+      if (successEl) {
+        successEl.style.display = "block";
+        // Move focus into the confirmation before the form disappears,
+        // otherwise focus falls to <body> and a screen reader user is
+        // left with no idea the submission worked.
+        if (!successEl.hasAttribute("tabindex")) successEl.setAttribute("tabindex", "-1");
+        if (!successEl.getAttribute("role")) successEl.setAttribute("role", "status");
+        successEl.focus({ preventScroll: true });
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       if (button) {

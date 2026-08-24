@@ -504,6 +504,11 @@ body.bp-light .stage::after { background: radial-gradient(ellipse at center, rgb
 
 /* footer stays dark on every theme */
 .book-page .footer { background: #08080a; position: relative; z-index: 1; }
+/* The footer is forced dark on book pages, but .book-page h1,h2,h3 paints
+   headings with --bk-text at the same specificity as .footer h3 and later
+   in the cascade, so it was winning. On the light book that put the footer
+   column headings at 1.15:1. Pin the footer's own foreground instead. */
+.book-page .footer h3 { color: var(--text); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 860px) {

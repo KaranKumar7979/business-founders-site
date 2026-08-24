@@ -109,6 +109,13 @@ html {
   text-align: center;
   padding: 130px 24px 70px;
 }
+/* The compartments snap to the full screen, so on a short phone the
+   fixed 130px top padding pushed the hero's buttons past the fold with
+   no way to scroll within the panel. */
+@media (max-height: 700px) {
+  .comp-intro { padding: 92px 20px 44px; }
+  .comp-intro h1 { font-size: clamp(32px, 6.4vw, 54px); margin-bottom: 16px; }
+}
 .comp-intro h1 {
   font-size: clamp(40px, 7vw, 78px);
   line-height: 1.06;

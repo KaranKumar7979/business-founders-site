@@ -117,6 +117,14 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
   color: var(--text);
   font-size: 26px;
   cursor: pointer;
+  /* the glyph alone measured about 23x35, under the 44px guidance, and
+     below 680px this button is the only way to reach the nav at all */
+  min-width: 44px;
+  min-height: 44px;
+  line-height: 1;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ---------- Hero ---------- */
@@ -402,7 +410,8 @@ a.card { text-decoration: none; color: inherit; display: block; }
   border-radius: 3px;
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 15px;
+  /* 16px, not 15: below 16 iOS Safari zooms in on focus and never back out */
+  font-size: 16px;
   padding: 13px 16px;
   transition: border-color 0.25s;
 }
@@ -533,6 +542,9 @@ a.card { text-decoration: none; color: inherit; display: block; }
   margin-bottom: 16px;
 }
 .footer ul { list-style: none; }
+/* body has overflow-x:hidden, so anything too wide is clipped rather
+   than scrollable. Long addresses need somewhere to break. */
+.card-link, .card p { overflow-wrap: anywhere; }
 .footer ul li { margin-bottom: 9px; }
 .footer a { color: var(--text-dim); text-decoration: none; font-size: 14px; transition: color 0.25s; }
 .footer a:hover { color: var(--gold); }
@@ -591,7 +603,7 @@ a.card { text-decoration: none; color: inherit; display: block; }
 
 @media (max-width: 680px) {
   .nav { padding: 16px 20px; }
-  .nav-toggle { display: block; }
+  .nav-toggle { display: flex; }
   .nav-links {
     display: none;
     position: absolute;
@@ -603,6 +615,10 @@ a.card { text-decoration: none; color: inherit; display: block; }
     gap: 20px;
   }
   .nav-links.open { display: flex; }
+  /* stretch, or each link stays as narrow as its own text inside a
+     full-width panel and the row around it is not tappable */
+  .nav-links { align-items: stretch; gap: 4px; }
+  .nav-links a { display: block; padding: 12px 4px; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .form-wrap { padding: 36px 24px; }
@@ -666,3 +682,12 @@ a.card { text-decoration: none; color: inherit; display: block; }
 .page li a:not([class]):focus-visible {
   text-decoration-color: currentColor;
 }
+
+/* The footer is site chrome, not page content, so the per-page accent
+   must not reach it. On book-03, whose accent is cobalt, footer links
+   were landing at 2.67:1 against the footer's dark composite. Same
+   specificity as the rule above, placed after it so it wins. */
+.footer p a:not([class]),
+.footer li a:not([class]) { color: var(--text-dim); }
+.footer p a:not([class]):hover,
+.footer li a:not([class]):hover { color: var(--gold); }
