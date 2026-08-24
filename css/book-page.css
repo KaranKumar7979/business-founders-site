@@ -41,7 +41,10 @@ body.book-page::before {
 
 /* ---------- hero ---------- */
 .bp-hero {
-  min-height: 100svh;
+  /* see the note in home.css: svh leaves a gap once the address bar
+     retracts. Not snapped here, so the effect is milder, but same cause. */
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;

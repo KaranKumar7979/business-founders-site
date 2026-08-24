@@ -601,6 +601,16 @@ a.card { text-decoration: none; color: inherit; display: block; }
   .about-story { grid-template-columns: 1fr; gap: 44px; }
 }
 
+/* The bar is frosted glass: 72% black plus a blur. That reads as solid
+   on desktop, but Safari does not always sample a backdrop-filter through
+   the compartments' own compositing layers, and when the blur silently
+   does nothing the bar is just 72% black and the panel behind it shows
+   through. Lean on opacity rather than the blur at phone widths, so it
+   holds up either way. Desktop keeps the glass. */
+@media (max-width: 900px) {
+  .nav { background: rgba(6, 6, 7, 0.94); }
+}
+
 @media (max-width: 680px) {
   .nav { padding: 16px 20px; }
   .nav-toggle { display: flex; }

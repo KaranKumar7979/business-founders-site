@@ -15,8 +15,14 @@ html {
 
 .comp {
   position: relative;
+  /* dvh, not svh. svh is the height with the browser chrome fully
+     expanded, so the moment iOS retracts the address bar the visible
+     area grows past it and the panel no longer fills the screen: the
+     next compartment shows along the bottom edge and slides under the
+     translucent header. dvh tracks the area that is actually visible.
+     100vh stays first as the fallback for browsers without dvh. */
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;
