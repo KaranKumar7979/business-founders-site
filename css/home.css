@@ -509,6 +509,18 @@ html {
   padding-top: 96px;
 }
 .comp-tail .footer { margin-top: auto; }
+
+/* The tail is the one compartment that runs well past a single screen
+   (about 1830px on a phone), but .comp gives it a single snap point at
+   its top and scroll-snap-stop:always. Mandatory snap therefore kept
+   pulling back to that one point, so reaching the footer meant forcing
+   the scroll the whole way down and again on the way back up. A second
+   snap point at the bottom edge turns it into two clean flicks, and
+   dropping snap-stop lets a longer swipe run through instead of being
+   halted at the top of the section. */
+.comp-tail { scroll-snap-stop: normal; }
+.comp-tail .footer { scroll-snap-align: end; }
+
 .tail-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 .story {
   text-align: center;
