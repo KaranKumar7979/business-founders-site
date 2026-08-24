@@ -172,6 +172,39 @@ document.querySelectorAll("form.lead-form").forEach((form) => {
   });
 });
 
+// ---------- the last compartment scrolls like a normal page ----------
+// Everything above it pages one flick at a time, which is the point. The
+// tail is different: it is taller than the screen and is meant to be read
+// straight through to the footer. Mandatory snap fights that, pulling back
+// to the section's top, so release the snap once the tail has landed and
+// put it back when the reader pages up out of it. Toggling on the scroll
+// container is the only way to do this: scroll-snap-align cannot opt a
+// section out of a mandatory parent without the container snapping to the
+// previous section instead.
+(function () {
+  const tail = document.querySelector(".comp-tail");
+  const root = document.documentElement;
+  if (!tail) return;
+  if (!getComputedStyle(root).scrollSnapType.includes("mandatory")) return;
+
+  let released = false;
+  // Deliberately not rAF-throttled: this is one rect read per scroll event
+  // and it writes nothing unless the state actually flips, so the usual
+  // reason to throttle does not apply, and it keeps working in contexts
+  // where rAF is paused.
+  const sync = () => {
+    // "landed" means the tail's top has reached the top of the screen, so
+    // the reader has finished paging and is now reading.
+    const landed = tail.getBoundingClientRect().top <= 1;
+    if (landed === released) return;
+    released = landed;
+    root.style.scrollSnapType = landed ? "none" : "";
+  };
+  window.addEventListener("scroll", sync, { passive: true });
+  window.addEventListener("resize", sync, { passive: true });
+  sync();
+})();
+
 // ---------- Links whose destination does not exist yet ----------
 // Same discipline as the REPLACE_ME forms: never send a visitor to a
 // 404, and never imply something is ready when it is not. Drop the

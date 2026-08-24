@@ -572,16 +572,13 @@ html {
 }
 .comp-tail .footer { margin-top: auto; }
 
-/* The tail is the one compartment that runs well past a single screen
-   (about 1830px on a phone), but .comp gives it a single snap point at
-   its top and scroll-snap-stop:always. Mandatory snap therefore kept
-   pulling back to that one point, so reaching the footer meant forcing
-   the scroll the whole way down and again on the way back up. A second
-   snap point at the bottom edge turns it into two clean flicks, and
-   dropping snap-stop lets a longer swipe run through instead of being
-   halted at the top of the section. */
+/* The tail is the one compartment taller than a screen, and it is meant
+   to read as an ordinary page: story, guarantees, CTA, footer. Mandatory
+   snap fights that, so js/main.js releases the snap once this section has
+   landed and restores it when the reader pages back up. snap-stop goes to
+   normal so a longer swipe can run into it rather than being halted at
+   the top edge. */
 .comp-tail { scroll-snap-stop: normal; }
-.comp-tail .footer { scroll-snap-align: end; }
 
 .tail-inner {
   max-width: var(--max-w);
