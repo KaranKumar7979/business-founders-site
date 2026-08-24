@@ -840,9 +840,18 @@ html {
   #book-comps .comp-meta p { font-size: 15px; margin-bottom: 16px; }
   #book-comps .stage { width: min(52vw, 210px); }
 }
+/* Measured at 360x640: the compartment came to 695px of content and the
+   Read Chapter One link sat at 655px. These panels snap and do not scroll
+   inside themselves, so anything past the fold is unreachable, not just
+   below. Trimmed until the second button clears. */
 @media (max-height: 700px) and (max-width: 900px) {
   #book-comps .stage { width: min(42vw, 170px); }
   #book-comps .comp-meta h2 { font-size: 22px; }
+  #book-comps .comp-inner { padding-top: 62px; padding-bottom: 22px; gap: 12px; }
+  #book-comps .comp-meta p { font-size: 14px; margin-bottom: 12px; }
+  #book-comps .comp-eyebrow { margin-bottom: 4px; }
+  #book-comps .comp-price { margin-bottom: 12px; }
+  #book-comps .comp-price .now { font-size: 26px; }
 }
 
 /* Real covers need a frame the typographic stand-ins never did. Book 3 is
