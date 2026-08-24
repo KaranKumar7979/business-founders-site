@@ -18,14 +18,18 @@ html {
 
 .comp {
   position: relative;
-  /* dvh, not svh. svh is the height with the browser chrome fully
-     expanded, so the moment iOS retracts the address bar the visible
-     area grows past it and the panel no longer fills the screen: the
-     next compartment shows along the bottom edge and slides under the
-     translucent header. dvh tracks the area that is actually visible.
-     100vh stays first as the fallback for browsers without dvh. */
+  /* lvh, and deliberately not the other two. svh is the height with the
+     browser chrome expanded, so once iOS retracts the address bar the
+     panel stops short and the next compartment shows along the bottom
+     edge. dvh closes that gap but changes value while the chrome moves,
+     and a panel that resizes mid-scroll fights mandatory snap: the flick
+     sticks between panels. lvh is the retracted height, a fixed number
+     that never changes during a scroll, so the panel is never shorter
+     than the screen and the snap has a stable target. The cost is that
+     while the address bar is showing the panel runs slightly past the
+     fold, which resolves the moment the user scrolls. */
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100lvh;
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;

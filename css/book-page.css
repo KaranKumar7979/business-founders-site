@@ -42,9 +42,10 @@ body.book-page::before {
 /* ---------- hero ---------- */
 .bp-hero {
   /* see the note in home.css: svh leaves a gap once the address bar
-     retracts. Not snapped here, so the effect is milder, but same cause. */
+     retracts, dvh resizes mid-scroll. Not snapped here, so neither
+     matters as much, but keep it consistent with the compartments. */
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100lvh;
   display: flex;
   align-items: center;
   justify-content: center;
