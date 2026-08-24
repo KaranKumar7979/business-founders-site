@@ -66,6 +66,9 @@
           <span class="bp-cta-note">Launch price, rising to $19. Instant PDF delivery, and the first chapter is free.</span>
         </div>
         <div class="stage" aria-hidden="true">
+          <!-- before .stage-tilt, not after: paint order is DOM order here,
+               so trailing it drew the glow over the cover's bottom edge -->
+          <div class="bk-glow"></div>
           <div class="stage-tilt">
             <div class="book-cover">
               <picture>
@@ -75,7 +78,6 @@
               <span class="bk-spark">✦</span>
             </div>
           </div>
-          <div class="bk-glow"></div>
         </div>
       </div>
     </header>

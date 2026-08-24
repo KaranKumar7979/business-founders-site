@@ -220,7 +220,11 @@
       const glow = document.createElement("div");
       glow.className = "bk-glow";
       glow.setAttribute("aria-hidden", "true");
-      stage.appendChild(glow);
+      // Before the book, not after. Neither element carries a z-index, so
+      // paint order is DOM order: appended last, the glow drew on top of
+      // the cover and its 16px blur washed over the bottom 40px of the
+      // artwork. A shadow belongs behind the thing casting it.
+      stage.insertBefore(glow, stage.firstChild);
     }
     inner.appendChild(stage);
 
