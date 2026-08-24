@@ -495,10 +495,20 @@ html {
    7 · Story + CTA + footer
    ============================================ */
 .comp-tail {
-  min-height: auto;
-  display: block;
+  /* min-height was auto so the panel could grow for the footer, but that
+     also let it come up short: its natural height is about 1150px, so on
+     a window taller than that the compartment above leaked in at the top.
+     At least one screen now, as a column with the footer pinned to the
+     bottom, so the slack lands above the footer rather than under it. */
+  min-height: 100vh;
+  min-height: 100lvh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
   padding-top: 96px;
 }
+.comp-tail .footer { margin-top: auto; }
 .tail-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 .story {
   text-align: center;

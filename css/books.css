@@ -560,10 +560,17 @@ html {
 
 /* ---------- tail (guarantee + footer) ---------- */
 .comp-tail {
-  min-height: auto;
-  display: block;
+  /* see the note in home.css: auto let this fall short of a tall window
+     and the compartment above showed at the top */
+  min-height: 100vh;
+  min-height: 100lvh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
   padding-top: 70px;
 }
+.comp-tail .footer { margin-top: auto; }
 .tail-inner {
   max-width: var(--max-w);
   margin: 0 auto 70px;
