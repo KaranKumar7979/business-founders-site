@@ -75,10 +75,21 @@ const BOOK_THEMES = [
     title: "Growing Your Business With AI",
     subtitle: "Get More Customers and Revenue From What You Already Have",
     href: "book-04.html",
-    // TEMPORARY: cover disabled so the drawn curve animation is visible
-    // again on the shelf. Restore this line to bring the artwork back.
-    // cover: { webp: "images/covers/book-4-growing-with-ai.webp", png: "images/covers/book-4-growing-with-ai.png" },
-    cover: null,
+    cover: { webp: "images/covers/book-4-growing-with-ai.webp", png: "images/covers/book-4-growing-with-ai.png" },
+    // The artwork deliberately leaves its middle band empty so this curve
+    // can be drawn over it instead of printed into it. Coordinates are in
+    // the cover's own 1800x2700 space, which is what js/books.js uses as
+    // the overlay viewBox, so they hold at any rendered size.
+    //
+    // Measured off the export: the subtitle ends at y=1274 and the gold
+    // caption block starts at y=2297. Nothing here may stray outside
+    // roughly y=1400..2210, glow radius included, or it touches type.
+    // Any other book can take a curve by adding this same block with its
+    // own path and node.
+    curve: {
+      d: "M 90 2180 C 520 2168, 880 2090, 1160 1900 S 1545 1610, 1690 1480",
+      node: { x: 1690, y: 1480, r: 45, glow: 120 },
+    },
     price: "$14",
     priceWas: "$19",
     chapterPdf: "files/chapter-04.pdf",

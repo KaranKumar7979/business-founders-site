@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css?v=7" />
-  <link rel="stylesheet" href="css/book-page.css?v=18" />
+  <link rel="stylesheet" href="css/book-page.css?v=19" />
 </head>
 <body class="book-page fx-curve" data-effect="curve" style="--bk-bg-top:#175F45; --bk-bg-bottom:#062017; --bk-accent:#D2A94F; --bk-accent-soft:rgba(210,169,79,.45); --bk-accent-faint:rgba(210,169,79,.14); --bk-text:#F5F1E8; --bk-muted:#9FC4B2; --bk-font:'Poppins', 'Inter', sans-serif;">
 
@@ -72,6 +72,15 @@
                 <source srcset="images/covers/book-4-growing-with-ai.webp" type="image/webp" />
                 <img src="images/covers/book-4-growing-with-ai.png" alt="Cover of Growing Your Business With AI" class="cover-img" width="800" height="1200" decoding="async" fetchpriority="high" />
               </picture>
+              <!-- Same overlay the shelf builds from the curve block in
+                   js/books-config.js. viewBox is the cover's own 1800x2700
+                   space, so these numbers match that config exactly; change
+                   both together. -->
+              <svg class="curve" viewBox="0 0 1800 2700" aria-hidden="true">
+                <circle class="node-glow" cx="1690" cy="1480" r="120" />
+                <path class="curve-path" d="M 90 2180 C 520 2168, 880 2090, 1160 1900 S 1545 1610, 1690 1480" />
+                <circle class="node" cx="1690" cy="1480" r="45" />
+              </svg>
             </div>
           </div>
         </div>

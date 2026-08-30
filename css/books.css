@@ -389,7 +389,10 @@ html {
 .fx-curve .curve-path {
   fill: none;
   stroke: var(--bk-accent);
-  stroke-width: 3;
+  /* 27 in the cover's 1800-wide space, which lands at about 5px on a
+     330px card. The old value of 3 was tuned for the 200-wide stand-in
+     viewBox; carried over unchanged it would render under 2px. */
+  stroke-width: 27;
   stroke-linecap: round;
   stroke-dasharray: var(--len, 400);
   stroke-dashoffset: var(--len, 400);

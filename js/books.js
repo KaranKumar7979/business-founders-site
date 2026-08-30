@@ -112,24 +112,34 @@
     return cover;
   }
 
+  // A curve drawn over the cover rather than printed into it. The artwork
+  // leaves a band empty for it, so the overlay uses the cover's own
+  // 1800x2700 coordinate space as its viewBox and the numbers in
+  // books-config.js are read straight off the export. Nothing is in pixels,
+  // so it holds at any card width.
+  //
+  // Book 04 is the one using this today. Any book can: give it a curve
+  // block in its theme. The earlier printed curve could not be overlaid
+  // because a freehand line baked into an image has no geometry to target.
+  function curveOverlay(curve) {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 1800 2700");
+    svg.setAttribute("class", "curve");
+    svg.setAttribute("aria-hidden", "true");
+    const n = curve.node;
+    // glow, line, node: the glow sits behind the line, the node above it
+    svg.innerHTML =
+      `<circle class="node-glow" cx="${n.x}" cy="${n.y}" r="${n.glow}" />` +
+      `<path class="curve-path" d="${curve.d}" />` +
+      `<circle class="node" cx="${n.x}" cy="${n.y}" r="${n.r}" />`;
+    return svg;
+  }
+
   function buildCurveCover(theme) {
     const cover = document.createElement("div");
     cover.className = "book-cover";
     cover.appendChild(theme.cover ? coverImage(theme) : coverText(theme));
-    // The drawn curve was for the typographic stand-in. The real cover has
-    // a rising curve printed on it, and no overlay can line up with a curve
-    // baked into an image, so the artwork keeps it to itself.
-    if (theme.cover) return cover;
-    // Inline SVG so the curve can draw itself on section entry
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("viewBox", "0 0 200 300");
-    svg.setAttribute("class", "curve");
-    svg.setAttribute("aria-hidden", "true");
-    svg.innerHTML =
-      `<path class="curve-path" d="M 18 258 C 70 252, 100 170, 132 116 S 168 58 180 44" />` +
-      `<circle class="node-glow" cx="180" cy="44" r="16" />` +
-      `<circle class="node" cx="180" cy="44" r="5" />`;
-    cover.appendChild(svg);
+    if (theme.curve) cover.appendChild(curveOverlay(theme.curve));
     return cover;
   }
 

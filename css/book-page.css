@@ -235,7 +235,8 @@ body.book-page::before {
 .fx-curve .curve-path {
   fill: none;
   stroke: var(--bk-accent);
-  stroke-width: 3;
+  /* see the note in books.css: this is the cover's 1800-wide space */
+  stroke-width: 27;
   stroke-linecap: round;
   stroke-dasharray: var(--len, 400);
   stroke-dashoffset: var(--len, 400);
