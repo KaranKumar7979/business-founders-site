@@ -97,10 +97,18 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
      site stays on --gold #d4af37 until the theme decision is made */
   color: #ffc000;
   font-weight: 400;
-  /* a brush script sits small next to caps at the same size, and its
-     own letterforms already carry the spacing */
-  font-size: 1.12em;
+  /* 1.75em, measured rather than guessed. In the supplied artwork the
+     script's ink is 1.674x the height of the Poppins caps. Font-size is
+     not ink height though: at the same font-size Adlery actually draws
+     0.959x the caps (0.695 of font-size against Poppins Bold's 0.725),
+     so reaching that 1.674 needs 1.746em. The old 1.12em left the script
+     barely taller than the caps, which is why the lockup did not match.
+     Re-derive both numbers if either face changes. */
+  font-size: 1.75em;
   letter-spacing: 0.01em;
+  /* the two faces share a baseline, and the script's larger body would
+     otherwise push the bar taller than its caps need */
+  line-height: 0.8;
 }
 
 .nav-links {
@@ -633,9 +641,25 @@ a.card { text-decoration: none; color: inherit; display: block; }
   .nav { background: rgba(6, 6, 7, 0.94); }
 }
 
-@media (max-width: 680px) {
-  .nav { padding: 16px 20px; }
+/* The menu button used to appear at 680, but the full link row plus the
+   lockup needs about 890px on one line: 567 for the links, 243 for the
+   lockup, 80 of padding. Between 681 and 890 the links were wrapping to
+   two rows and the bar grew to 88px. That predates the new wordmark,
+   which needed 870 before and only made the shortfall worse, so the
+   button now covers the whole band rather than the row being cramped
+   into a space it has never fitted. */
+/* Tighter gap from 1100 down: the row is 457px of link text plus five
+   gaps, so 34px gaps need 992px of bar and 22px gaps need 932. */
+@media (max-width: 1100px) {
+  .nav-links { gap: 22px; }
+}
+
+@media (max-width: 960px) {
   .nav-toggle { display: flex; }
+  /* The script half is 1.75em, so the lockup is 285px wide at the desktop
+     size and would touch the menu button on a 360px screen. Scaling the
+     parent takes both halves down together and keeps their ratio. */
+  .nav-logo { font-size: 17px; }
   .nav-links {
     display: none;
     position: absolute;
@@ -651,10 +675,21 @@ a.card { text-decoration: none; color: inherit; display: block; }
      full-width panel and the row around it is not tappable */
   .nav-links { align-items: stretch; gap: 4px; }
   .nav-links a { display: block; padding: 12px 4px; }
+}
+
+/* phone-only from here: these are about column count and padding, not
+   about whether the nav fits */
+@media (max-width: 680px) {
+  .nav { padding: 16px 20px; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .form-wrap { padding: 36px 24px; }
   .section { padding: 70px 20px; }
+}
+
+/* 320 wide still had the lockup meeting the button with nothing between */
+@media (max-width: 380px) {
+  .nav-logo { font-size: 15px; }
 }
 
 /* ---------- Coming-soon badge + form error ---------- */
