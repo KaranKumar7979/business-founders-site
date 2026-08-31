@@ -172,48 +172,69 @@ document.querySelectorAll("form.lead-form").forEach((form) => {
   });
 });
 
-// ---------- the last compartment scrolls like a normal page ----------
-// Everything above it pages one flick at a time, which is the point. The
-// tail is different: it is taller than the screen and is meant to be read
-// straight through to the footer. Mandatory snap fights that, pulling back
-// to the section's top, so release the snap once the tail has landed and
-// put it back when the reader pages up out of it. Toggling on the scroll
-// container is the only way to do this: scroll-snap-align cannot opt a
-// section out of a mandatory parent without the container snapping to the
-// previous section instead.
+// ---------- sections taller than the screen scroll like a normal page ----------
+// Most compartments are exactly one screen and should page one flick at a
+// time. Some are not: the tail carries story, guarantees, CTA and footer,
+// and the shop page's bundle compartment runs over two screens. Those are
+// meant to be read, and mandatory snap fights reading, because an oversized
+// section still has only one snap point at its top and the container keeps
+// pulling back to it.
+//
+// So the rule is by height, not by name: while the section at the top of the
+// screen is taller than the screen, release the snap; hand it back at the
+// boundary when the reader moves up out of it.
 (function () {
-  const tail = document.querySelector(".comp-tail");
   const root = document.documentElement;
-  if (!tail) return;
   if (!getComputedStyle(root).scrollSnapType.includes("mandatory")) return;
+  const comps = Array.from(document.querySelectorAll(".comp"));
+  if (!comps.length) return;
 
   let released = false;
-  // Deliberately not rAF-throttled: this is one rect read per scroll event
-  // and it writes nothing unless the state actually flips, so the usual
-  // reason to throttle does not apply, and it keeps working in contexts
-  // where rAF is paused.
-  const sync = () => {
-    const top = tail.getBoundingClientRect().top;
+  let lastY = window.scrollY;
+  let holdUntil = 0;
 
-    // Scrolling up, the free scroll stops at the tail's own top edge.
-    // Without this the momentum carries straight on and drags the
-    // compartment above halfway into view, which is not what a page
-    // break should look like. Pin to the boundary and hand control back
-    // to the pager, so going further up takes a deliberate flick.
-    if (released && top > 0) {
-      window.scrollTo(0, window.scrollY + top);
-      released = false;
-      root.style.scrollSnapType = "";
+  // The compartment occupying the top of the screen, but only if it is
+  // meaningfully taller than the screen. The margin keeps a section that
+  // merely overflows by a few pixels on the paging path.
+  const tallSectionAtTop = () =>
+    comps.find((c) => {
+      const r = c.getBoundingClientRect();
+      return r.top <= 1 && r.bottom > 1 && r.height > window.innerHeight + 40;
+    });
+
+  // Deliberately not rAF-throttled: one rect read per scroll event, writing
+  // nothing unless the state flips, and it keeps working where rAF is paused.
+  const sync = () => {
+    const y = window.scrollY;
+    const goingUp = y < lastY;
+    lastY = y;
+    const tall = tallSectionAtTop();
+
+    if (released) {
+      // Still inside a tall section, including a taller one above it: stay
+      // free. Only hand back once a one-screen compartment is at the top.
+      if (!tall && goingUp) {
+        released = false;
+        root.style.scrollSnapType = "";
+        // The pager settles onto the boundary, and that settle is itself a
+        // downward scroll. Without this hold it reads as the reader entering
+        // the section again, we release right back, and the two states trade
+        // places on every event with the reader pinned at the boundary.
+        holdUntil = Date.now() + 500;
+      }
       return;
     }
 
-    // "landed" means the tail's top has reached the top of the screen, so
-    // the reader has finished paging and is now reading.
-    const landed = top <= 1;
-    if (landed === released) return;
-    released = landed;
-    root.style.scrollSnapType = landed ? "none" : "";
+    if (Date.now() < holdUntil) return;
+
+    // Gated on direction so that starting an upward swipe from the boundary
+    // pages away instead of releasing again.
+    if (tall && !goingUp) {
+      released = true;
+      root.style.scrollSnapType = "none";
+    }
   };
+
   window.addEventListener("scroll", sync, { passive: true });
   window.addEventListener("resize", sync, { passive: true });
   sync();

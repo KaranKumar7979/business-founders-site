@@ -652,11 +652,19 @@ html {
 
 /* ============================================
    Bundle ladder: three tiers, compared side by side
-   Not a snap target. A buyer choosing between three
-   options needs to scroll freely, not one flick per screen.
+   A buyer comparing three options needs to scroll freely rather
+   than one flick per screen, and it does. But that is js/main.js
+   releasing the snap because this section is taller than the
+   screen, not this rule.
+   It used to say scroll-snap-align:none for the same goal, which
+   backfired: under mandatory snap, a section with no snap point
+   is not free, it is unreachable. This one starts at 4220 with
+   the next point at 6157, so every scroll down from the last book
+   fell in the dead zone and snapped straight back. The pricing
+   ladder could not be reached by scrolling down at all.
    ============================================ */
 .comp-bundle {
-  scroll-snap-align: none;
+  scroll-snap-align: start;
   scroll-snap-stop: normal;
   min-height: auto;
   padding: 110px 0 90px;
