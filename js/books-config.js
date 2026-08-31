@@ -87,8 +87,11 @@ const BOOK_THEMES = [
     // Any other book can take a curve by adding this same block with its
     // own path and node.
     curve: {
-      d: "M 90 2180 C 520 2168, 880 2090, 1160 1900 S 1545 1610, 1690 1480",
-      node: { x: 1690, y: 1480, r: 45, glow: 120 },
+      d: "M 90 2180 C 520 2168, 880 2090, 1160 1900 S 1460 1640, 1560 1520",
+      // Ends at 1560, not 1690. The glow's radius counts against the
+      // cover edge too: at x=1690 it reached 1810 on an 1800 wide cover
+      // and .book-cover clips, so the halo was cut off flat on its right.
+      node: { x: 1560, y: 1520, r: 45, glow: 120 },
     },
     price: "$14",
     priceWas: "$19",
