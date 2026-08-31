@@ -111,6 +111,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
      rather than above it. */
   font-size: 1em;
   letter-spacing: 0.01em;
+  /* the markup separates the words with a single space, which the brush
+     script's own left sidebearing then eats into. This is the gap. */
+  margin-left: 0.32em;
   /* the two faces share a baseline, and the script's larger body would
      otherwise push the bar taller than its caps need */
   line-height: 0.8;
