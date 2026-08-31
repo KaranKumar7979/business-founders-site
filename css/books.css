@@ -589,6 +589,17 @@ html {
    slack in one void above the footer: 335px at 1280x900, 675px at
    1920x1240. Let the content take the free space and sit centred in it,
    so the room reads as breathing space rather than a gap. */
+/* Matches the homepage tail's story block, which is styled in
+   home.css. The shop page loads books.css instead, so it needs its own
+   copy of these three rules. */
+.story {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 54px;
+}
+.story h2 { font-family: var(--font-display); font-size: clamp(26px, 3.4vw, 40px); margin: 6px 0 16px; }
+.story p { color: var(--text-dim); font-size: 16px; line-height: 1.7; margin-bottom: 24px; }
+
 .tail-inner {
   max-width: var(--max-w);
   margin: 0 auto 70px;
