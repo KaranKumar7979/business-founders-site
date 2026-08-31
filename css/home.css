@@ -518,7 +518,21 @@ html {
    the top edge. */
 .comp-tail { scroll-snap-stop: normal; }
 
-.tail-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+/* The tail has a full-screen minimum so the compartment above cannot
+   leak in, and the footer is pinned to the bottom. On a page whose tail
+   carries little (the shop's is a 140px guarantee bar) that left all the
+   slack in one void above the footer: 335px at 1280x900, 675px at
+   1920x1240. Let the content take the free space and sit centred in it,
+   so the room reads as breathing space rather than a gap. */
+.tail-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .story {
   text-align: center;
   max-width: 620px;
