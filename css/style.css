@@ -97,14 +97,17 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
      site stays on --gold #d4af37 until the theme decision is made */
   color: #ffc000;
   font-weight: 400;
-  /* 1.75em, measured rather than guessed. In the supplied artwork the
-     script's ink is 1.674x the height of the Poppins caps. Font-size is
-     not ink height though: at the same font-size Adlery actually draws
-     0.959x the caps (0.695 of font-size against Poppins Bold's 0.725),
-     so reaching that 1.674 needs 1.746em. The old 1.12em left the script
-     barely taller than the caps, which is why the lockup did not match.
-     Re-derive both numbers if either face changes. */
-  font-size: 1.75em;
+  /* 1.15em: the script sits a touch above the caps without the gap
+     reading as a mistake. Its ink lands at about 1.10x the Poppins caps.
+     Not 1.75em. The artwork's script is 1.674x the caps, but that is a
+     stacked lockup whose two words are set to the same width (0.984
+     measured), so the script has to be far taller to fill that width
+     with fewer, wider letterforms. Side by side there is no width to
+     match and the ratio does not transfer: it just makes the script
+     tower over the caps. The useful figure for a horizontal lockup is
+     that at equal font-size Adlery's ink is 0.959x Poppins Bold's
+     (0.695 of font-size against 0.725), so 1em reads as level. */
+  font-size: 1.15em;
   letter-spacing: 0.01em;
   /* the two faces share a baseline, and the script's larger body would
      otherwise push the bar taller than its caps need */
@@ -656,10 +659,6 @@ a.card { text-decoration: none; color: inherit; display: block; }
 
 @media (max-width: 960px) {
   .nav-toggle { display: flex; }
-  /* The script half is 1.75em, so the lockup is 285px wide at the desktop
-     size and would touch the menu button on a 360px screen. Scaling the
-     parent takes both halves down together and keeps their ratio. */
-  .nav-logo { font-size: 17px; }
   .nav-links {
     display: none;
     position: absolute;
@@ -687,9 +686,10 @@ a.card { text-decoration: none; color: inherit; display: block; }
   .section { padding: 70px 20px; }
 }
 
-/* 320 wide still had the lockup meeting the button with nothing between */
+/* 320 leaves only about 10px between the lockup and the menu button at
+   the full size, so it steps down there */
 @media (max-width: 380px) {
-  .nav-logo { font-size: 15px; }
+  .nav-logo { font-size: 17px; }
 }
 
 /* ---------- Coming-soon badge + form error ---------- */
