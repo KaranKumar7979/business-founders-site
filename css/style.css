@@ -511,20 +511,19 @@ a.card { text-decoration: none; color: inherit; display: block; }
 .about-story h2 { font-size: clamp(28px, 4vw, 42px); margin-bottom: 24px; }
 .about-story p { color: var(--text-dim); margin-bottom: 18px; }
 
+/* No frame. This held a 90px "BF" in the display serif and needed a card
+   behind it; it now holds the wordmark artwork, which is transparent and
+   is meant to sit straight on the page background. The square aspect went
+   with the card: the column collapses to the artwork and the grid's
+   align-items:center keeps it level with the text beside it. */
 .about-visual {
-  aspect-ratio: 1;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background:
-    radial-gradient(ellipse at 40% 30%, rgba(212, 175, 55, 0.14), transparent 55%),
-    linear-gradient(160deg, #121217, #08080a);
-  display: flex; align-items: center; justify-content: center;
-  /* was a 90px "BF" in the display serif; it now holds the wordmark art,
-     and the padding is what decides how much of the square it fills */
-  padding: 14%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .about-visual img {
   width: 100%;
+  max-width: 460px;
   height: auto;
   display: block;
 }
