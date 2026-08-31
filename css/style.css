@@ -75,15 +75,33 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
   border-bottom: 1px solid var(--border);
 }
 
+/* The wordmark is two faces: BUSINESS in Poppins Bold, FOUNDERS in
+   Adlery Pro. Adlery is a commercial Sudtipos face, not on Google Fonts,
+   so it comes from the Adobe Fonts kit linked in each page's head.
+   Until that kit is in place the second word falls back to the display
+   serif, which is what the logo used before, so nothing looks broken
+   while it is missing. Confirm the family name in the kit: Adobe uses a
+   lowercase slug and it may not be exactly "adlery-pro". */
 .nav-logo {
-  font-family: var(--font-display);
+  font-family: "Poppins", var(--font-body);
+  font-weight: 700;
   font-size: 20px;
   letter-spacing: 0.06em;
   color: var(--text);
   text-decoration: none;
   white-space: nowrap;
 }
-.nav-logo span { color: var(--gold); }
+.nav-logo span {
+  font-family: "adlery-pro", var(--font-display);
+  /* the brighter gold, on the wordmark only for now: the rest of the
+     site stays on --gold #d4af37 until the theme decision is made */
+  color: #ffc000;
+  font-weight: 400;
+  /* a brush script sits small next to caps at the same size, and its
+     own letterforms already carry the spacing */
+  font-size: 1.12em;
+  letter-spacing: 0.01em;
+}
 
 .nav-links {
   display: flex;
