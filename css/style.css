@@ -519,9 +519,14 @@ a.card { text-decoration: none; color: inherit; display: block; }
     radial-gradient(ellipse at 40% 30%, rgba(212, 175, 55, 0.14), transparent 55%),
     linear-gradient(160deg, #121217, #08080a);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display);
-  font-size: 90px;
-  color: var(--gold);
+  /* was a 90px "BF" in the display serif; it now holds the wordmark art,
+     and the padding is what decides how much of the square it fills */
+  padding: 14%;
+}
+.about-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .values .card { text-align: center; }
