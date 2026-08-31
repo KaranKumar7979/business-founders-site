@@ -106,8 +106,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
      match and the ratio does not transfer: it just makes the script
      tower over the caps. The useful figure for a horizontal lockup is
      that at equal font-size Adlery's ink is 0.959x Poppins Bold's
-     (0.695 of font-size against 0.725), so 1em reads as level. */
-  font-size: 1.15em;
+     (0.695 of font-size against 0.725), so 1em reads as level, which is
+     where this sits: the script's ink lands just under the cap height
+     rather than above it. */
+  font-size: 1em;
   letter-spacing: 0.01em;
   /* the two faces share a baseline, and the script's larger body would
      otherwise push the bar taller than its caps need */
